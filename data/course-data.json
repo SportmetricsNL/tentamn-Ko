@@ -1,0 +1,1312 @@
+{
+  "generatedAt": "2026-03-05T11:25:54.634964+00:00",
+  "title": "TT Leerstof Arena - Blok 1 t/m 5",
+  "approach": "Toetsing en leerlijn gebaseerd op blok 1 t/m 5. Overige bestanden zijn ondersteunende bronbibliotheek.",
+  "articleGuide": {
+    "id": "ko_beslisboom_artikel",
+    "title": "Beslisboom + Artikelherkenning",
+    "steps": [
+      {
+        "step": "1. Paradigma",
+        "definition": "Geheel van aannames over werkelijkheid en kennis dat keuzes in onderzoek stuurt.",
+        "example": "Onderzoekers willen begrijpen hoe studenten gezondheidsclaims interpreteren.",
+        "howToRecognize": "Vaak impliciet, zichtbaar via onderzoeksvraag, taal en methodekeuze.",
+        "keywords": [
+          "understand",
+          "explore",
+          "interpret",
+          "meaning",
+          "experience"
+        ],
+        "articleSections": [
+          "Introductie",
+          "Theoretisch kader"
+        ]
+      },
+      {
+        "step": "2. Onderzoeksvraag",
+        "definition": "Beschrijft wat het onderzoek wil begrijpen, verkennen of verklaren.",
+        "example": "How do students interpret health claims on social media?",
+        "howToRecognize": "Expliciet als aim, objective of research question.",
+        "keywords": [
+          "aim",
+          "research question",
+          "objective",
+          "explore"
+        ],
+        "articleSections": [
+          "Einde introductie"
+        ]
+      },
+      {
+        "step": "3. Onderzoeksdesign",
+        "definition": "De algemene strategie waarmee de vraag onderzocht wordt.",
+        "example": "Case study, etnografie, kwalitatieve survey, participatief actieonderzoek.",
+        "howToRecognize": "Designlabel + motivering in methode-sectie.",
+        "keywords": [
+          "case",
+          "fieldwork",
+          "participant observation",
+          "participatory",
+          "action research"
+        ],
+        "articleSections": [
+          "Methode"
+        ]
+      },
+      {
+        "step": "4. Sampling",
+        "definition": "Selectie van deelnemers op basis van doel en relevantie.",
+        "example": "Purposive, snowball of convenience sampling.",
+        "howToRecognize": "Beschrijving van inclusiecriteria, werving en variatie.",
+        "keywords": [
+          "purposive",
+          "selected for experience",
+          "snowball",
+          "referral",
+          "convenience",
+          "volunteers"
+        ],
+        "articleSections": [
+          "Methode"
+        ]
+      },
+      {
+        "step": "5. Saturatie",
+        "definition": "Dataverzameling stopt wanneer geen nieuwe betekenisvolle inzichten ontstaan.",
+        "example": "No new themes emerged after interview 12.",
+        "howToRecognize": "Onderbouwing van stoppen op inhoud, niet alleen op aantal.",
+        "keywords": [
+          "saturation",
+          "no new themes"
+        ],
+        "articleSections": [
+          "Methode"
+        ]
+      },
+      {
+        "step": "6. Dataverzameling",
+        "definition": "Concrete methoden waarmee empirische data zijn verzameld.",
+        "example": "Semi-structured interviews, observations, document analysis.",
+        "howToRecognize": "Procedurebeschrijving van gesprekken, observaties of documenten.",
+        "keywords": [
+          "semi-structured interview",
+          "interview guide",
+          "observation",
+          "field notes",
+          "document analysis"
+        ],
+        "articleSections": [
+          "Methode"
+        ]
+      },
+      {
+        "step": "7. Analyse",
+        "definition": "Proces van coderen en interpreteren naar betekenisvolle patronen.",
+        "example": "Thematic analysis met coderen en themavorming.",
+        "howToRecognize": "Analysestappen en codes/thema's worden gerapporteerd.",
+        "keywords": [
+          "coding",
+          "codebook",
+          "thematic analysis",
+          "themes"
+        ],
+        "articleSections": [
+          "Methode",
+          "Resultaten"
+        ]
+      },
+      {
+        "step": "8. Kwaliteit",
+        "definition": "Strategieen om geloofwaardigheid en navolgbaarheid te waarborgen.",
+        "example": "Credibility, transferability, dependability en confirmability.",
+        "howToRecognize": "Reflexiviteit, member checks, thick description, audit trail.",
+        "keywords": [
+          "credibility",
+          "member check",
+          "transferability",
+          "thick description",
+          "audit trail",
+          "reflexivity"
+        ],
+        "articleSections": [
+          "Methode",
+          "Discussie"
+        ]
+      },
+      {
+        "step": "9. Ethiek",
+        "definition": "Bescherming van deelnemers en zorgvuldige omgang met relationele dynamiek.",
+        "example": "Procedurele, situationele en relationele ethiek.",
+        "howToRecognize": "Ethics approval, informed consent en reflectie op machtsverhoudingen.",
+        "keywords": [
+          "ethics approval",
+          "informed consent",
+          "ethical considerations",
+          "researcher-participant relationship"
+        ],
+        "articleSections": [
+          "Methode",
+          "Discussie"
+        ]
+      }
+    ],
+    "quickCheck": [
+      "Introductie -> onderzoeksvraag + paradigma-indicatie",
+      "Methode -> design + sampling + dataverzameling + analyse + ethiek",
+      "Resultaten -> codes/thema's en analytische samenhang",
+      "Discussie -> kwaliteit, beperkingen, transferability en reflexiviteit"
+    ]
+  },
+  "coreSourceFiles": [
+    "Blok_1_Paradigmas_Tentamenvoorbereiding.pdf",
+    "Blok_2_Uitgebreid_Contextueel_Tentamenproof.pdf",
+    "Blok_3_Uitgebreid_Contextueel_Tentamenproof.pdf",
+    "Blok_4_Artikelbeoordeling_Methodologie_Uitgebreid.pdf",
+    "Blok_5_Integratie_VeelgemaakteFouten_Tentamenstrategie.pdf"
+  ],
+  "supportSourceFiles": [
+    "Braun&Clarke - Using thematic analysis in psychology-1.pdf",
+    "HC 4  Kwaliteit bevorderen en bewaken in kwalitatief onderzoek 2026 (1).pdf",
+    "HC1 Introductie Groot def (1).pdf",
+    "HC2- Paradigma's  2025-2026 (Duijs)  -  Alleen-lezen.pdf",
+    "HC5- Ethiek  2025-2026 (Barbara Groot) (1).pdf",
+    "Handboek kwalitatieve onderzoeksmethoden_AccoLearn.pdf",
+    "Helicopter_View_Kwalitatief_Onderzoek_Tentamen_Overzicht.pdf",
+    "Hoorcollege 3 - probleemstelling en design - Goedhart - premaster 2026 (1).pdf",
+    "Hoorcollege 6 - analyseren - 2025-2025.pdf",
+    "Oefententamen 2 Kwalitatief onderzoek_inclusief antwoorden.pdf",
+    "Studiehandleiding Kwalitatief Onderzoek 2025 - 2026 (pre-master)DEF1.pdf",
+    "Werkgroep 1 - slides.pdf",
+    "Werkgroep 2 - slides.pdf",
+    "Werkgroep 3 - slides.pdf",
+    "Werkgroep 5 - slides.pdf",
+    "Werkgroep 6 - slides.pdf",
+    "oefententamen 2024-2025.pdf",
+    "werkgroep 4 - slides.pdf"
+  ],
+  "blocks": [
+    {
+      "id": "blok-1",
+      "title": "Blok 1 - Paradigma's",
+      "focus": "Ontologie, epistemologie en paradigmaherkenning in onderzoeksteksten.",
+      "sourceFile": "Blok_1_Paradigmas_Tentamenvoorbereiding.pdf",
+      "learningGoals": [
+        "Paradigma in een abstract of casus herkennen.",
+        "Ontologie en epistemologie per paradigma benoemen.",
+        "Design en vraagtype koppelen aan een paradigma.",
+        "Uitleggen waarom andere paradigma's minder passend zijn."
+      ],
+      "summary": [
+        "Positivisme gaat uit van een objectieve, meetbare werkelijkheid en focust op effect en verband.",
+        "Interpretatief/fenomenologisch onderzoek vertrekt vanuit subjectieve beleving en meervoudige werkelijkheden.",
+        "Sociaal constructivisme ziet werkelijkheid als sociaal en talig geconstrueerd.",
+        "Kritische theorie analyseert hoe macht en ongelijkheid kennis en werkelijkheid vormen."
+      ],
+      "pitfalls": [
+        "Betekenisvragen per ongeluk beantwoorden alsof het effectvragen zijn.",
+        "Causale taal gebruiken binnen een interpretatief paradigma.",
+        "Macht en ongelijkheid negeren in een kritisch-theoretische casus."
+      ],
+      "concepts": [
+        {
+          "term": "Ontologie",
+          "definition": "Aannames over wat werkelijkheid is.",
+          "examTip": "Noem expliciet of werkelijkheid objectief, subjectief of sociaal geconstrueerd is."
+        },
+        {
+          "term": "Epistemologie",
+          "definition": "Aannames over hoe kennis over die werkelijkheid ontstaat.",
+          "examTip": "Koppel kennisvorming aan meten, ervaring, interactie of emancipatie."
+        },
+        {
+          "term": "Positivisme",
+          "definition": "Objectieve werkelijkheid; meten, verbanden en generaliseerbaarheid staan centraal.",
+          "examTip": "Past bij vragen zoals: wat is het effect van X op Y?"
+        },
+        {
+          "term": "Interpretatief/Fenomenologisch",
+          "definition": "Begrijpt ervaringen en betekenisgeving vanuit perspectief van deelnemers.",
+          "examTip": "Gebruik taal als ervaren, beleving en perspectief."
+        },
+        {
+          "term": "Sociaal Constructivisme",
+          "definition": "Werkelijkheid en kennis ontstaan in sociale interactie, taal en context.",
+          "examTip": "Let op termen als discours, constructie en context."
+        },
+        {
+          "term": "Kritische Theorie",
+          "definition": "Analyseert machtsstructuren en ongelijkheid met veranderingsgericht doel.",
+          "examTip": "Noem expliciet macht, ideologie en emancipatie."
+        }
+      ]
+    },
+    {
+      "id": "blok-2",
+      "title": "Blok 2 - Probleemstelling, Design, Sampling, Interview",
+      "focus": "Onderzoeksvraag opbouw, strategische designkeuze en dataverzameling met diepgang.",
+      "sourceFile": "Blok_2_Uitgebreid_Contextueel_Tentamenproof.pdf",
+      "learningGoals": [
+        "Sterke probleemstelling opbouwen van context naar research gap.",
+        "Onderzoeksvraag en design logisch laten aansluiten.",
+        "Samplingstrategie onderbouwen en saturatie inhoudelijk beargumenteren.",
+        "Interviewtechnieken kiezen voor diepgang en niet-defensieve respons."
+      ],
+      "summary": [
+        "Een goede probleemstelling verbindt maatschappelijke relevantie, wetenschappelijke lacune en een open vraag.",
+        "Design is de onderzoeksstrategie (bijv. case study), niet hetzelfde als interviewen.",
+        "Sampling is doelgericht en transparant; saturatie gaat over nieuwe inzichten, niet over een vast n.",
+        "Semi-gestructureerde interviews met goede probes leveren doorgaans de meeste kwalitatieve diepgang."
+      ],
+      "pitfalls": [
+        "Interview als design benoemen in plaats van als methode.",
+        "Saturatie verwarren met een vooraf afgesproken aantal respondenten.",
+        "Waarom-vragen te direct gebruiken waardoor defensieve antwoorden ontstaan."
+      ],
+      "concepts": [
+        {
+          "term": "Probleemstelling",
+          "definition": "Logische opbouw van domein -> relevantie -> lacune -> doel -> onderzoeksvraag.",
+          "examTip": "Check of de lacune expliciet en verdedigbaar is."
+        },
+        {
+          "term": "Design",
+          "definition": "Onderzoeksstrategie die past bij de vraag (bijv. case study, etnografie).",
+          "examTip": "Verdedig waarom dit design beter past dan alternatieven."
+        },
+        {
+          "term": "Purposive Sampling",
+          "definition": "Doelgericht selecteren van deelnemers op inhoudelijke relevantie.",
+          "examTip": "Noem selectiecriteria die direct aansluiten op de onderzoeksvraag."
+        },
+        {
+          "term": "Saturatie",
+          "definition": "Moment waarop nieuwe interviews geen nieuwe betekenisvolle inzichten meer toevoegen.",
+          "examTip": "Onderbouw met inhoud (nieuwe dimensies wel/niet), niet met alleen aantallen."
+        },
+        {
+          "term": "Semi-gestructureerd interview",
+          "definition": "Topiclijst met ruimte voor doorvragen en verdieping.",
+          "examTip": "Combineer structuur met non-directieve probes."
+        },
+        {
+          "term": "Reflexiviteit",
+          "definition": "Onderzoeker reflecteert op eigen positie en invloed op data en interpretatie.",
+          "examTip": "Maak aannames expliciet in reflexieve notities."
+        }
+      ]
+    },
+    {
+      "id": "blok-3",
+      "title": "Blok 3 - Analyse, Kwaliteit en Ethiek",
+      "focus": "Thematische analyse, kwaliteitscriteria, triangulatie en ethische redenering.",
+      "sourceFile": "Blok_3_Uitgebreid_Contextueel_Tentamenproof.pdf",
+      "learningGoals": [
+        "Stappen van thematische analyse correct uitleggen en toepassen.",
+        "Inductieve, deductieve en abductieve logica onderscheiden.",
+        "Lincoln & Guba kwaliteitscriteria concreet gebruiken in beoordeling.",
+        "Ethiek uitleggen als procedureel, situationeel en relationeel proces."
+      ],
+      "summary": [
+        "Thematische analyse vraagt abstractie: van fragmenten naar betekenisvolle patronen.",
+        "Veel studies werken abductief: data en theorie sturen elkaar wederzijds bij.",
+        "Saturatie is inhoudelijk: nieuwe data leveren geen nieuwe dimensies op.",
+        "Kwaliteit toon je met credibility, transferability, dependability, confirmability en authenticity."
+      ],
+      "pitfalls": [
+        "Resultaten reduceren tot losse citaten zonder analytische interpretatie.",
+        "Triangulatie noemen zonder aan te geven welk type en waarom.",
+        "Ethiek beperken tot alleen informed consent."
+      ],
+      "concepts": [
+        {
+          "term": "Thematische Analyse",
+          "definition": "Systematisch patronen van betekenis identificeren in relatie tot de onderzoeksvraag.",
+          "examTip": "Noem expliciet de overgang van open -> axiaal -> selectief coderen."
+        },
+        {
+          "term": "Abductie",
+          "definition": "Iteratief schakelen tussen onverwachte data-patronen en passende theorie.",
+          "examTip": "Leg uit hoe bevindingen theoriekeuze hebben bijgestuurd."
+        },
+        {
+          "term": "Credibility",
+          "definition": "Geloofwaardigheid van interpretaties, bijv. via member check of triangulatie.",
+          "examTip": "Noem concreet welke methode credibility verhoogt."
+        },
+        {
+          "term": "Transferability",
+          "definition": "Overdraagbaarheid naar andere contexten via rijke contextbeschrijving.",
+          "examTip": "Gebruik de term thick description."
+        },
+        {
+          "term": "Confirmability",
+          "definition": "Bevindingen zijn herleidbaar tot data, niet alleen onderzoekerinterpretatie.",
+          "examTip": "Audit trail + reflexieve notities zijn sterke argumenten."
+        },
+        {
+          "term": "Ethiek als proces",
+          "definition": "Procedurele, situationele en relationele afwegingen gedurende het hele onderzoek.",
+          "examTip": "Laat zien welk type ethiek in de casus het meest relevant is."
+        }
+      ]
+    },
+    {
+      "id": "blok-4",
+      "title": "Blok 4 - Artikelbeoordeling en Methodologische Integratie",
+      "focus": "Kritisch beoordelen of vraag, paradigma, design, sampling en analyse consistent zijn.",
+      "sourceFile": "Blok_4_Artikelbeoordeling_Methodologie_Uitgebreid.pdf",
+      "learningGoals": [
+        "Paradigma-consistentie in artikelen signaleren en beargumenteren.",
+        "Match tussen onderzoeksvraag en design beoordelen.",
+        "Samplingtransparantie en saturatie-onderbouwing evalueren.",
+        "Analysekwaliteit en kwaliteitscriteria inhoudelijk beoordelen."
+      ],
+      "summary": [
+        "Een artikel is sterk als paradigma, vraag, methode en analyse op elkaar aansluiten.",
+        "Fenomenologisch claimen maar alleen met vaste theoretische categorieën coderen is vaak inconsistent.",
+        "Goede methodesecties zijn transparant over selectie, variatie en saturatie.",
+        "Analysekwaliteit blijkt uit abstractie, patroonherkenning en koppeling met de onderzoeksvraag."
+      ],
+      "pitfalls": [
+        "Alleen checklistmatig afvinken zonder argumenten per criterium.",
+        "Generaliseerbaarheid eisen bij een exploratieve kwalitatieve vraag.",
+        "Reflexiviteit vergeten bij confirmability-beoordeling."
+      ],
+      "concepts": [
+        {
+          "term": "Paradigma-consistentie",
+          "definition": "De gekozen aannames, methode en analysemethode spreken elkaar niet tegen.",
+          "examTip": "Zoek actief naar contradicties tussen claim en uitvoering."
+        },
+        {
+          "term": "Design-vraag match",
+          "definition": "Design volgt logisch uit het type onderzoeksvraag.",
+          "examTip": "Open ervaringsvraag vraagt geen experimenteel design."
+        },
+        {
+          "term": "Samplingtransparantie",
+          "definition": "Duidelijk rapporteren wie, waarom, hoe geselecteerd en wanneer saturatie bereikt is.",
+          "examTip": "Zoek naar inclusiecriteria en variatiestrategie."
+        },
+        {
+          "term": "Analyse-diepgang",
+          "definition": "Interpretatieve laag met themarelaties, niet alleen beschrijving.",
+          "examTip": "Citaatgebruik moet analytisch ingebed zijn."
+        },
+        {
+          "term": "Methodologische integratie",
+          "definition": "Samenhang tussen paradigma, vraag, design, sampling, analyse, kwaliteit en ethiek.",
+          "examTip": "Beschrijf niet losse onderdelen maar hun onderlinge logica."
+        }
+      ]
+    },
+    {
+      "id": "blok-5",
+      "title": "Blok 5 - Integratie en Tentamenstrategie",
+      "focus": "Casusmatig redeneren over methodologische kwaliteit en complete tentamenantwoorden.",
+      "sourceFile": "Blok_5_Integratie_VeelgemaakteFouten_Tentamenstrategie.pdf",
+      "learningGoals": [
+        "In casussen meerdere methodologische lagen tegelijk beoordelen.",
+        "Veelgemaakte tentamenfouten actief vermijden.",
+        "Antwoorden compact maar volledig en met vaktaal formuleren.",
+        "Een vaste casusaanpak in zes stappen toepassen."
+      ],
+      "summary": [
+        "Integratief denken betekent niet één onderdeel beoordelen, maar de samenhang ertussen.",
+        "Veel fouten ontstaan door begripsverwarring (design vs methode, saturatie vs n).",
+        "Een sterke casusaanpak loopt via paradigma, vraag-design, sampling, analyse, kwaliteit en ethiek.",
+        "Tentamenkwaliteit stijgt door gestructureerde redenering met expliciete assumpties."
+      ],
+      "pitfalls": [
+        "Vage formuleringen zonder termen als ontologie, saturatie of confirmability.",
+        "Kwaliteitscriteria noemen zonder toepassing op de casus.",
+        "Niet aangeven waarom een alternatief minder passend is."
+      ],
+      "concepts": [
+        {
+          "term": "Integratief redeneren",
+          "definition": "Gelijktijdig beoordelen van paradigma, design, sampling, analyse, kwaliteit en ethiek.",
+          "examTip": "Leg expliciet verbanden tussen keuzes en consequenties."
+        },
+        {
+          "term": "Casusaanpak in 6 stappen",
+          "definition": "Paradigma -> vraag/design -> sampling -> analyse -> kwaliteit -> ethiek/reflexiviteit.",
+          "examTip": "Gebruik deze volgorde als vaste antwoordstructuur."
+        },
+        {
+          "term": "Tentamenformulering",
+          "definition": "Kort, volledig, onderbouwd en in vaktermen.",
+          "examTip": "Noem assumptie + observatie + conclusie in elke kernzin."
+        },
+        {
+          "term": "Veelgemaakte fouten",
+          "definition": "Ontbrekende paradigma-onderbouwing, beschrijvende analyse, verkeerde saturatieredenering.",
+          "examTip": "Eindig je antwoord met een korte kwaliteitscheck."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "b1-q1",
+      "blockId": "blok-1",
+      "prompt": "Welke ontologische aanname hoort bij positivisme?",
+      "options": [
+        "Werkelijkheid is sociaal geconstrueerd",
+        "Werkelijkheid is objectief en onafhankelijk",
+        "Werkelijkheid is alleen via taal kenbaar",
+        "Werkelijkheid is afhankelijk van macht alleen"
+      ],
+      "answer": "Werkelijkheid is objectief en onafhankelijk",
+      "explanation": "In blok 1 wordt positivisme gekoppeld aan één objectieve werkelijkheid.",
+      "difficulty": "basis",
+      "tags": [
+        "ontologie",
+        "positivisme"
+      ]
+    },
+    {
+      "id": "b1-q2",
+      "blockId": "blok-1",
+      "prompt": "Welke vraag past het best bij een interpretatief/fenomenologisch paradigma?",
+      "options": [
+        "Wat is het effect van interventie X op score Y?",
+        "Hoe ervaren studenten prestatiedruk in hun studiecontext?",
+        "Welke variabele voorspelt therapietrouw het sterkst?",
+        "Hoe significant is het verband tussen A en B?"
+      ],
+      "answer": "Hoe ervaren studenten prestatiedruk in hun studiecontext?",
+      "explanation": "Interpretatief onderzoek richt zich op beleving en betekenis.",
+      "difficulty": "basis",
+      "tags": [
+        "onderzoeksvraag",
+        "interpretatief"
+      ]
+    },
+    {
+      "id": "b1-q3",
+      "blockId": "blok-1",
+      "prompt": "Wat staat centraal in sociaal-constructivistische epistemologie?",
+      "options": [
+        "Meten met gestandaardiseerde instrumenten",
+        "Kennis ontstaat in interactie en taal",
+        "Kennis is universeel en contextvrij",
+        "Kennis is alleen individueel psychologisch"
+      ],
+      "answer": "Kennis ontstaat in interactie en taal",
+      "explanation": "Sociaal constructivisme koppelt kennisvorming aan interactie, discours en context.",
+      "difficulty": "basis",
+      "tags": [
+        "epistemologie",
+        "constructivisme"
+      ]
+    },
+    {
+      "id": "b1-q4",
+      "blockId": "blok-1",
+      "prompt": "Een studie focust op macht, ideologie en emancipatie. Welk paradigma is het meest passend?",
+      "options": [
+        "Positivisme",
+        "Kritische theorie",
+        "Fenomenologie",
+        "Pragmatisme"
+      ],
+      "answer": "Kritische theorie",
+      "explanation": "Macht en ongelijkheid zijn kernkenmerken van kritische theorie.",
+      "difficulty": "basis",
+      "tags": [
+        "kritische theorie",
+        "macht"
+      ]
+    },
+    {
+      "id": "b1-q5",
+      "blockId": "blok-1",
+      "prompt": "Welke combinatie is inhoudelijk inconsistent?",
+      "options": [
+        "Interpretatief paradigma + focus op beleving",
+        "Positivisme + hypothesetoetsing",
+        "Kritische theorie + analyse van ongelijkheid",
+        "Sociaal constructivisme + puur effectmeting met significantietesten"
+      ],
+      "answer": "Sociaal constructivisme + puur effectmeting met significantietesten",
+      "explanation": "Een puur effectmeetkader sluit slecht aan op constructivistische aannames.",
+      "difficulty": "gevorderd",
+      "tags": [
+        "consistentie",
+        "paradigma"
+      ]
+    },
+    {
+      "id": "b1-q6",
+      "blockId": "blok-1",
+      "prompt": "Welke herkenningsregel uit blok 1 klopt?",
+      "options": [
+        "Meten en verklaren wijst op interpretatief onderzoek",
+        "Individuele ervaring centraal wijst op positivisme",
+        "Sociale constructie via taal wijst op constructivisme",
+        "Machtsanalyse wijst op fenomenologie"
+      ],
+      "answer": "Sociale constructie via taal wijst op constructivisme",
+      "explanation": "In het herkenningsschema wordt taal/interactie gekoppeld aan constructivisme.",
+      "difficulty": "basis",
+      "tags": [
+        "herkenning",
+        "constructivisme"
+      ]
+    },
+    {
+      "id": "b2-q1",
+      "blockId": "blok-2",
+      "prompt": "Wat is de sterkste opbouw van een probleemstelling?",
+      "options": [
+        "Methode -> resultaten -> theorie",
+        "Brede context -> relevantie -> research gap -> doel -> open vraag",
+        "Hypothese -> significantie -> discussie",
+        "Sampling -> analyse -> conclusie"
+      ],
+      "answer": "Brede context -> relevantie -> research gap -> doel -> open vraag",
+      "explanation": "Blok 2 benadrukt een logische opbouw van context naar lacune en vraag.",
+      "difficulty": "basis",
+      "tags": [
+        "probleemstelling"
+      ]
+    },
+    {
+      "id": "b2-q2",
+      "blockId": "blok-2",
+      "prompt": "Wat is in blok 2 de juiste uitspraak over design?",
+      "options": [
+        "Design is hetzelfde als interviewtype",
+        "Design is de onderzoeksstrategie, niet de losse methode",
+        "Design is alleen relevant bij kwantitatief onderzoek",
+        "Design vervangt de onderzoeksvraag"
+      ],
+      "answer": "Design is de onderzoeksstrategie, niet de losse methode",
+      "explanation": "Case study, etnografie en survey zijn strategieën; interview is een methode.",
+      "difficulty": "basis",
+      "tags": [
+        "design",
+        "methode"
+      ]
+    },
+    {
+      "id": "b2-q3",
+      "blockId": "blok-2",
+      "prompt": "Welke samplingstrategie is het meest doelgericht voor relevante variatie?",
+      "options": [
+        "Convenience sampling",
+        "Purposive sampling",
+        "Aselecte trekking",
+        "Quota zonder criteria"
+      ],
+      "answer": "Purposive sampling",
+      "explanation": "Purposive sampling selecteert deelnemers op inhoudelijke relevantie.",
+      "difficulty": "basis",
+      "tags": [
+        "sampling"
+      ]
+    },
+    {
+      "id": "b2-q4",
+      "blockId": "blok-2",
+      "prompt": "Wanneer kun je saturatie het best verantwoorden?",
+      "options": [
+        "Na precies 10 interviews, ongeacht inhoud",
+        "Als het budget op is",
+        "Wanneer nieuwe interviews geen nieuwe betekenisvolle inzichten meer geven",
+        "Zodra alle respondenten uit dezelfde opleiding komen"
+      ],
+      "answer": "Wanneer nieuwe interviews geen nieuwe betekenisvolle inzichten meer geven",
+      "explanation": "Saturatie is een inhoudelijk criterium, geen vast aantal.",
+      "difficulty": "basis",
+      "tags": [
+        "saturatie"
+      ]
+    },
+    {
+      "id": "b2-q5",
+      "blockId": "blok-2",
+      "prompt": "Welke probe is non-directief?",
+      "options": [
+        "Bedoelt u dat dit stress veroorzaakte?",
+        "Kunt u daar meer over vertellen?",
+        "Waarom reageerde u irrationeel?",
+        "Was dit niet gewoon tijdsdruk?"
+      ],
+      "answer": "Kunt u daar meer over vertellen?",
+      "explanation": "Deze vraag stuurt minimaal en nodigt uit tot verdieping.",
+      "difficulty": "basis",
+      "tags": [
+        "interview",
+        "probes"
+      ]
+    },
+    {
+      "id": "b2-q6",
+      "blockId": "blok-2",
+      "prompt": "Waarom zijn veel 'waarom-vragen' risicovol in interviews?",
+      "options": [
+        "Ze leveren te weinig data op",
+        "Ze roepen vaak defensieve of rationaliserende antwoorden op",
+        "Ze zijn methodologisch verboden",
+        "Ze maken transcriptie onmogelijk"
+      ],
+      "answer": "Ze roepen vaak defensieve of rationaliserende antwoorden op",
+      "explanation": "Blok 2 noemt dit expliciet als interviewvalkuil.",
+      "difficulty": "basis",
+      "tags": [
+        "interviewtechniek"
+      ]
+    },
+    {
+      "id": "b2-q7",
+      "blockId": "blok-2",
+      "prompt": "Welke combinatie is methodologisch het meest logisch?",
+      "options": [
+        "Open ervaringsvraag + experimenteel design",
+        "Verklarende effectvraag + fenomenologische analyse",
+        "Ervaringsvraag + semi-gestructureerde interviews + thematische analyse",
+        "Constructivistische vraag + alleen p-waardenrapportage"
+      ],
+      "answer": "Ervaringsvraag + semi-gestructureerde interviews + thematische analyse",
+      "explanation": "Deze combinatie houdt focus op betekenis en beleving.",
+      "difficulty": "gevorderd",
+      "tags": [
+        "integratie",
+        "design"
+      ]
+    },
+    {
+      "id": "b2-q8",
+      "blockId": "blok-2",
+      "prompt": "Wat is de functie van sensitizing concepts in het conceptueel kader?",
+      "options": [
+        "Ze leggen vooraf definitieve codes vast",
+        "Ze geven richting zonder analyse volledig dicht te zetten",
+        "Ze vervangen de onderzoeksvraag",
+        "Ze worden alleen na dataverzameling bedacht"
+      ],
+      "answer": "Ze geven richting zonder analyse volledig dicht te zetten",
+      "explanation": "Blok 2 beschrijft sensitizing concepts als richtinggevend maar open.",
+      "difficulty": "basis",
+      "tags": [
+        "conceptueel kader"
+      ]
+    },
+    {
+      "id": "b3-q1",
+      "blockId": "blok-3",
+      "prompt": "Welke volgorde van thematische analyse is correct?",
+      "options": [
+        "Selectief -> open -> review -> axiaal -> familiariseren",
+        "Familiariseren -> open coderen -> axiaal coderen -> selectief coderen -> review",
+        "Open coderen -> interviewen -> review -> member check -> selectief",
+        "Familiariseren -> selectief -> open -> axiaal -> rapporteren"
+      ],
+      "answer": "Familiariseren -> open coderen -> axiaal coderen -> selectief coderen -> review",
+      "explanation": "Deze volgorde sluit aan op de opbouw in blok 3.",
+      "difficulty": "basis",
+      "tags": [
+        "analyse",
+        "thematische analyse"
+      ]
+    },
+    {
+      "id": "b3-q2",
+      "blockId": "blok-3",
+      "prompt": "Wat typeert abductief analyseren?",
+      "options": [
+        "Alleen bestaande theorie testen",
+        "Alleen data volgen zonder theorie",
+        "Schakelen tussen onverwachte data en passende theorie",
+        "Eerst significantie toetsen en dan interviewen"
+      ],
+      "answer": "Schakelen tussen onverwachte data en passende theorie",
+      "explanation": "Abductie is iteratief en combineert datagedreven en theoretische stappen.",
+      "difficulty": "basis",
+      "tags": [
+        "abductie"
+      ]
+    },
+    {
+      "id": "b3-q3",
+      "blockId": "blok-3",
+      "prompt": "Welke uitspraak over saturatie is juist?",
+      "options": [
+        "Saturatie betekent minimaal 20 respondenten",
+        "Saturatie betekent dat concepten volledig zijn uitgewerkt en relaties helder zijn",
+        "Saturatie vervangt kwaliteitscriteria",
+        "Saturatie is gelijk aan steekproefdiversiteit"
+      ],
+      "answer": "Saturatie betekent dat concepten volledig zijn uitgewerkt en relaties helder zijn",
+      "explanation": "Blok 3 verwijst naar een inhoudelijke definitie van saturatie.",
+      "difficulty": "basis",
+      "tags": [
+        "saturatie",
+        "analyse"
+      ]
+    },
+    {
+      "id": "b3-q4",
+      "blockId": "blok-3",
+      "prompt": "Welk kwaliteitscriterium past bij thick description?",
+      "options": [
+        "Credibility",
+        "Transferability",
+        "Dependability",
+        "Confirmability"
+      ],
+      "answer": "Transferability",
+      "explanation": "Rijke contextbeschrijving ondersteunt beoordeling van overdraagbaarheid.",
+      "difficulty": "basis",
+      "tags": [
+        "lincoln-guba",
+        "kwaliteit"
+      ]
+    },
+    {
+      "id": "b3-q5",
+      "blockId": "blok-3",
+      "prompt": "Welke combinatie is een voorbeeld van methodologische triangulatie?",
+      "options": [
+        "Twee onderzoekers coderen dezelfde dataset",
+        "Interviews combineren met observaties",
+        "Een codeboek in twee talen",
+        "Eenzelfde interviewprotocol in twee ziekenhuizen"
+      ],
+      "answer": "Interviews combineren met observaties",
+      "explanation": "Meerdere methoden inzetten is methodologische triangulatie.",
+      "difficulty": "basis",
+      "tags": [
+        "triangulatie"
+      ]
+    },
+    {
+      "id": "b3-q6",
+      "blockId": "blok-3",
+      "prompt": "Wat valt primair onder procedurele ethiek?",
+      "options": [
+        "Onverwachte emotionele uitbarsting tijdens gesprek",
+        "Machtsverschil tussen docent en student",
+        "Informed consent en anonimiteitsafspraken",
+        "Interpretatieve spanning in het team"
+      ],
+      "answer": "Informed consent en anonimiteitsafspraken",
+      "explanation": "Procedurele ethiek gaat over formele, vooraf vastgelegde waarborgen.",
+      "difficulty": "basis",
+      "tags": [
+        "ethiek"
+      ]
+    },
+    {
+      "id": "b3-q7",
+      "blockId": "blok-3",
+      "prompt": "Wat is een veelgemaakte fout in resultatensecties volgens blok 3?",
+      "options": [
+        "Te weinig tabellen",
+        "Citaten opsommen zonder analyse",
+        "Te veel theoretische koppeling",
+        "Geen informed consent noemen"
+      ],
+      "answer": "Citaten opsommen zonder analyse",
+      "explanation": "Blok 3 benadrukt dat citaten analytisch ingebed moeten zijn.",
+      "difficulty": "basis",
+      "tags": [
+        "resultaten"
+      ]
+    },
+    {
+      "id": "b3-q8",
+      "blockId": "blok-3",
+      "prompt": "Wat beschrijft het emic-perspectief het best?",
+      "options": [
+        "De interpretatieve stem van de onderzoeker",
+        "De stem en betekeniswereld van deelnemers",
+        "Alleen statistische patronen",
+        "De ethische toetsingsprocedure"
+      ],
+      "answer": "De stem en betekeniswereld van deelnemers",
+      "explanation": "Emic verwijst naar het perspectief van binnenuit, van deelnemers zelf.",
+      "difficulty": "basis",
+      "tags": [
+        "emic",
+        "etic"
+      ]
+    },
+    {
+      "id": "b4-q1",
+      "blockId": "blok-4",
+      "prompt": "Wat betekent paradigma-consistentie in artikelbeoordeling?",
+      "options": [
+        "Alleen dat de onderzoeksvraag interessant is",
+        "Dat paradigma, methode en analyse logisch op elkaar aansluiten",
+        "Dat er veel respondenten zijn",
+        "Dat er minstens twee tabellen staan"
+      ],
+      "answer": "Dat paradigma, methode en analyse logisch op elkaar aansluiten",
+      "explanation": "Consistentie gaat over samenhang van aannames en methodologische keuzes.",
+      "difficulty": "basis",
+      "tags": [
+        "artikelbeoordeling",
+        "consistentie"
+      ]
+    },
+    {
+      "id": "b4-q2",
+      "blockId": "blok-4",
+      "prompt": "Een artikel claimt fenomenologisch te zijn, maar codeert alleen vooraf vastgestelde theoretische categorieën. Wat is de beste beoordeling?",
+      "options": [
+        "Sterk inductief ontwerp",
+        "Paradigma-inconsistentie door te sterke deductieve logica",
+        "Voorbeeld van perfecte triangulatie",
+        "Geen probleem zolang er veel citaten zijn"
+      ],
+      "answer": "Paradigma-inconsistentie door te sterke deductieve logica",
+      "explanation": "Blok 4 noemt dit expliciet als spanningspunt tussen claim en uitvoering.",
+      "difficulty": "gevorderd",
+      "tags": [
+        "fenomenologie",
+        "deductie"
+      ]
+    },
+    {
+      "id": "b4-q3",
+      "blockId": "blok-4",
+      "prompt": "Welke designkeuze past het best bij de vraag 'Hoe ervaren verpleegkundigen werkdruk?'",
+      "options": [
+        "Experimenteel design",
+        "Kwalitatieve survey of case study",
+        "Randomized trial",
+        "Meta-analyse"
+      ],
+      "answer": "Kwalitatieve survey of case study",
+      "explanation": "Een open ervaringsvraag vraagt een exploratief kwalitatief design.",
+      "difficulty": "basis",
+      "tags": [
+        "design-match"
+      ]
+    },
+    {
+      "id": "b4-q4",
+      "blockId": "blok-4",
+      "prompt": "Welk element hoort niet thuis in samplingtransparantie?",
+      "options": [
+        "Welke strategie is gebruikt en waarom",
+        "Hoe variatie is gewaarborgd",
+        "Wanneer saturatie is bereikt",
+        "Welke p-waarde als grens is gekozen"
+      ],
+      "answer": "Welke p-waarde als grens is gekozen",
+      "explanation": "Samplingtransparantie in kwalitatief onderzoek draait niet om p-waarden.",
+      "difficulty": "basis",
+      "tags": [
+        "sampling",
+        "transparantie"
+      ]
+    },
+    {
+      "id": "b4-q5",
+      "blockId": "blok-4",
+      "prompt": "Wat kenmerkt analyse met diepgang?",
+      "options": [
+        "Lange resultatenlijst zonder interpretatie",
+        "Samenhang tussen thema's en relatie met de onderzoeksvraag",
+        "Alle quotes alfabetisch ordenen",
+        "Alleen beschrijven wat respondenten letterlijk zeiden"
+      ],
+      "answer": "Samenhang tussen thema's en relatie met de onderzoeksvraag",
+      "explanation": "Diepgang vraagt abstractie en patroonredenering.",
+      "difficulty": "basis",
+      "tags": [
+        "analysekwaliteit"
+      ]
+    },
+    {
+      "id": "b4-q6",
+      "blockId": "blok-4",
+      "prompt": "Welke observatie wijst op beperkte confirmability?",
+      "options": [
+        "Er is een reflexieve paragraaf",
+        "Interpretaties zijn gekoppeld aan citaten",
+        "De rol van de onderzoeker wordt niet besproken",
+        "Er is een audit trail beschreven"
+      ],
+      "answer": "De rol van de onderzoeker wordt niet besproken",
+      "explanation": "Zonder reflexiviteit is herleidbaarheid van interpretaties zwakker.",
+      "difficulty": "basis",
+      "tags": [
+        "confirmability",
+        "reflexiviteit"
+      ]
+    },
+    {
+      "id": "b4-q7",
+      "blockId": "blok-4",
+      "prompt": "Wat is de sterkste methodologische integratie-beoordeling?",
+      "options": [
+        "Het artikel gebruikt veel vaktermen",
+        "Vraag, design, sampling en analyse zijn inhoudelijk op elkaar afgestemd",
+        "De discussie is lang",
+        "Het artikel heeft een impactfactor"
+      ],
+      "answer": "Vraag, design, sampling en analyse zijn inhoudelijk op elkaar afgestemd",
+      "explanation": "Integratie gaat over interne logica, niet over vormkenmerken.",
+      "difficulty": "basis",
+      "tags": [
+        "integratie"
+      ]
+    },
+    {
+      "id": "b5-q1",
+      "blockId": "blok-5",
+      "prompt": "Welke fout wordt in blok 5 expliciet genoemd?",
+      "options": [
+        "Interview verwarren met design",
+        "Te veel theoretische concepten gebruiken",
+        "Samplingcriteria expliciet maken",
+        "Ethiek relationeel bespreken"
+      ],
+      "answer": "Interview verwarren met design",
+      "explanation": "Dit is een klassieke tentamenfout volgens blok 5.",
+      "difficulty": "basis",
+      "tags": [
+        "veelgemaakte-fouten"
+      ]
+    },
+    {
+      "id": "b5-q2",
+      "blockId": "blok-5",
+      "prompt": "Wat is stap 1 van de casusbenadering in blok 5?",
+      "options": [
+        "Sampling beoordelen",
+        "Paradigma identificeren",
+        "Ethiek reflecteren",
+        "Kwaliteitscriteria scoren"
+      ],
+      "answer": "Paradigma identificeren",
+      "explanation": "De zesstappenaanpak start met paradigmaherkenning.",
+      "difficulty": "basis",
+      "tags": [
+        "casusaanpak"
+      ]
+    },
+    {
+      "id": "b5-q3",
+      "blockId": "blok-5",
+      "prompt": "Een studie gebruikt semi-gestructureerde interviews, purposive sampling en thematische analyse, maar claimt brede generaliseerbaarheid. Wat is de beste conclusie?",
+      "options": [
+        "Volledig consistent",
+        "Alleen sampling is problematisch",
+        "Er is spanning tussen kwalitatieve opzet en generaliseerbaarheidsclaim",
+        "De studie is daardoor per definitie ongeldig"
+      ],
+      "answer": "Er is spanning tussen kwalitatieve opzet en generaliseerbaarheidsclaim",
+      "explanation": "Blok 5 gebruikt precies dit type inconsistentie als oefencasus.",
+      "difficulty": "gevorderd",
+      "tags": [
+        "consistentie",
+        "generaliseerbaarheid"
+      ]
+    },
+    {
+      "id": "b5-q4",
+      "blockId": "blok-5",
+      "prompt": "Welke antwoordstijl past het best bij tentamenstrategie 8+?",
+      "options": [
+        "Lang antwoord met veel herhaling",
+        "Kort, gestructureerd, met expliciete vaktermen en onderbouwing",
+        "Alleen bulletpoints zonder argumentatie",
+        "Uitsluitend eigen mening geven"
+      ],
+      "answer": "Kort, gestructureerd, met expliciete vaktermen en onderbouwing",
+      "explanation": "Blok 5 benadrukt compact maar volledig, met terminologie uit de colleges.",
+      "difficulty": "basis",
+      "tags": [
+        "tentamenstrategie"
+      ]
+    },
+    {
+      "id": "b5-q5",
+      "blockId": "blok-5",
+      "prompt": "Wat betekent 'kwaliteitscriteria toepassen' in plaats van alleen noemen?",
+      "options": [
+        "De termen credibility en transferability letterlijk opschrijven",
+        "Per criterium laten zien hoe het in deze casus wel/niet is geborgd",
+        "Alle criteria in alfabetische volgorde zetten",
+        "Alleen confirmability bespreken"
+      ],
+      "answer": "Per criterium laten zien hoe het in deze casus wel/niet is geborgd",
+      "explanation": "Toepassen betekent casus-specifiek beoordelen, niet checklistmatig citeren.",
+      "difficulty": "basis",
+      "tags": [
+        "kwaliteit",
+        "argumentatie"
+      ]
+    },
+    {
+      "id": "b5-q6",
+      "blockId": "blok-5",
+      "prompt": "Welke formulering is het sterkst?",
+      "options": [
+        "Deze studie is prima gedaan.",
+        "Deze studie voelt logisch.",
+        "Deze studie past bij een interpretatief paradigma omdat meervoudige werkelijkheden en betekenisgeving centraal staan.",
+        "Deze studie is kwalitatief dus goed."
+      ],
+      "answer": "Deze studie past bij een interpretatief paradigma omdat meervoudige werkelijkheden en betekenisgeving centraal staan.",
+      "explanation": "Sterke formuleringen koppelen conclusie direct aan onderliggende assumpties.",
+      "difficulty": "basis",
+      "tags": [
+        "formulering",
+        "paradigma"
+      ]
+    },
+    {
+      "id": "b2-q9",
+      "blockId": "blok-2",
+      "prompt": "Welke aanwijzing past het sterkst bij een case study design?",
+      "options": [
+        "single setting",
+        "randomized allocation",
+        "meta-analysis",
+        "double blind"
+      ],
+      "answer": "single setting",
+      "explanation": "Een case study is een diepgaande analyse van een afgebakende context.",
+      "difficulty": "basis",
+      "tags": [
+        "design",
+        "case-study",
+        "herkenningswoorden"
+      ]
+    },
+    {
+      "id": "b2-q10",
+      "blockId": "blok-2",
+      "prompt": "Welk herkenningswoord wijst het sterkst op snowball sampling?",
+      "options": [
+        "thick description",
+        "referral",
+        "member check",
+        "audit trail"
+      ],
+      "answer": "referral",
+      "explanation": "Bij snowball sampling verwijzen deelnemers vaak nieuwe deelnemers.",
+      "difficulty": "basis",
+      "tags": [
+        "sampling",
+        "snowball",
+        "herkenningswoorden"
+      ]
+    },
+    {
+      "id": "b3-q9",
+      "blockId": "blok-3",
+      "prompt": "In welk deel van een artikel herken je thematische analyse meestal het duidelijkst?",
+      "options": [
+        "Titel en abstract",
+        "Methode en resultaten",
+        "Alleen referentielijst",
+        "Appendix met tabellen"
+      ],
+      "answer": "Methode en resultaten",
+      "explanation": "Thematische analyse staat vaak beschreven in methode en zichtbaar in gerapporteerde thema's bij resultaten.",
+      "difficulty": "basis",
+      "tags": [
+        "thematic-analysis",
+        "artikelstructuur"
+      ]
+    },
+    {
+      "id": "b3-q10",
+      "blockId": "blok-3",
+      "prompt": "Welk begrip hoort bij het herkenningswoord 'audit trail'?",
+      "options": [
+        "Credibility",
+        "Transferability",
+        "Dependability",
+        "Authenticity"
+      ],
+      "answer": "Dependability",
+      "explanation": "Audit trail ondersteunt navolgbaarheid en consistentie van het onderzoeksproces.",
+      "difficulty": "basis",
+      "tags": [
+        "kwaliteit",
+        "dependability"
+      ]
+    },
+    {
+      "id": "b4-q8",
+      "blockId": "blok-4",
+      "prompt": "Waar staat de onderzoeksvraag in een kwalitatief artikel meestal?",
+      "options": [
+        "Aan het einde van de introductie",
+        "Alleen in de discussie",
+        "Alleen in de resultaten",
+        "In de referenties"
+      ],
+      "answer": "Aan het einde van de introductie",
+      "explanation": "De research question of aim wordt vaak aan het einde van de introductie expliciet gemaakt.",
+      "difficulty": "basis",
+      "tags": [
+        "artikelstructuur",
+        "onderzoeksvraag"
+      ]
+    },
+    {
+      "id": "b4-q9",
+      "blockId": "blok-4",
+      "prompt": "Waar vind je procedurele ethiek (zoals informed consent) meestal?",
+      "options": [
+        "Methode-sectie",
+        "Conclusie-sectie",
+        "Resultaten-sectie",
+        "Titelpagina"
+      ],
+      "answer": "Methode-sectie",
+      "explanation": "Procedurele ethiek wordt doorgaans in de methode beschreven.",
+      "difficulty": "basis",
+      "tags": [
+        "ethiek",
+        "artikelstructuur"
+      ]
+    },
+    {
+      "id": "b4-q10",
+      "blockId": "blok-4",
+      "prompt": "Een introductie gebruikt vooral 'understand', 'explore', 'meaning', 'experience'. Wat is de beste inferentie?",
+      "options": [
+        "Waarschijnlijk een interpretatief georienteerde studie",
+        "Waarschijnlijk een experimenteel positivistisch ontwerp",
+        "Waarschijnlijk een puur statistische secundaire analyse",
+        "Waarschijnlijk een review zonder paradigma"
+      ],
+      "answer": "Waarschijnlijk een interpretatief georienteerde studie",
+      "explanation": "Deze woorden signaleren vaak betekenisgericht kwalitatief onderzoek.",
+      "difficulty": "basis",
+      "tags": [
+        "paradigma",
+        "herkenningswoorden"
+      ]
+    },
+    {
+      "id": "b5-q7",
+      "blockId": "blok-5",
+      "prompt": "Wat is de juiste ultra-snelle artikelcheck-volgorde?",
+      "options": [
+        "Discussie -> Methode -> Resultaten -> Introductie",
+        "Introductie -> Methode -> Resultaten -> Discussie",
+        "Methode -> Introductie -> Discussie -> Resultaten",
+        "Resultaten -> Discussie -> Methode -> Introductie"
+      ],
+      "answer": "Introductie -> Methode -> Resultaten -> Discussie",
+      "explanation": "Deze volgorde volgt de kernlogica van systematische artikelbeoordeling.",
+      "difficulty": "basis",
+      "tags": [
+        "artikelcheck",
+        "structuur"
+      ]
+    },
+    {
+      "id": "b5-q8",
+      "blockId": "blok-5",
+      "prompt": "Welke combinatie hoort bij de methode-sectie in een tentamenanalyse?",
+      "options": [
+        "Design + sampling + dataverzameling + analyse + ethiek",
+        "Alleen onderzoeksvraag en hypothese",
+        "Alleen thema's en citaten",
+        "Alleen beperkingen en transferability"
+      ],
+      "answer": "Design + sampling + dataverzameling + analyse + ethiek",
+      "explanation": "In de methode verzamel je de kern van uitvoering en verantwoording.",
+      "difficulty": "basis",
+      "tags": [
+        "methode",
+        "artikelcheck"
+      ]
+    },
+    {
+      "id": "b5-q9",
+      "blockId": "blok-5",
+      "prompt": "Je vindt in een artikel wel een open vraag en thematische analyse, maar geen samplinguitleg. Wat is de beste tentamenreactie?",
+      "options": [
+        "Geen probleem zolang de resultaten interessant zijn",
+        "Dit ondermijnt samplingtransparantie en daarmee methodologische onderbouwing",
+        "Dit is alleen een stijlkwestie",
+        "Dan is het automatisch een case study"
+      ],
+      "answer": "Dit ondermijnt samplingtransparantie en daarmee methodologische onderbouwing",
+      "explanation": "Zonder samplingverantwoording blijft onduidelijk waarom deze deelnemers passend zijn.",
+      "difficulty": "gevorderd",
+      "tags": [
+        "sampling",
+        "kritische-beoordeling"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "case-1",
+      "title": "Casus 1 - Paradigma onder druk",
+      "scenario": "Een onderzoeksteam zegt fenomenologisch te werken naar studie-ervaringen, maar gebruikt een gesloten codeboek met vooraf vastgelegde theoretische categorieen en rapporteert vooral frequenties.",
+      "tasks": [
+        "Beoordeel de paradigma-consistentie.",
+        "Noem twee concrete verbeteringen in analyse-opzet.",
+        "Geef een korte tentamenwaardige conclusie (2-3 zinnen)."
+      ],
+      "modelPoints": [
+        "Er is spanning tussen fenomenologische claim en sterke deductieve/kwantificerende analyse.",
+        "Verbetering 1: start met open coderen en laat thema's uit data ontstaan.",
+        "Verbetering 2: rapporteer betekenispatronen i.p.v. alleen frequenties.",
+        "Conclusie koppelt aan ontologie/epistemologie: beleving vraagt interpretatieve diepgang."
+      ]
+    },
+    {
+      "id": "case-2",
+      "title": "Casus 2 - Sampling en saturatie",
+      "scenario": "Onderzoekers interviewen 12 studenten uit eigen netwerk en stellen dat saturatie bereikt is omdat het vooraf geplande aantal gehaald is.",
+      "tasks": [
+        "Welke samplingstrategie lijkt gebruikt en wat is het risico?",
+        "Waarom is de saturatieclaim methodologisch zwak?",
+        "Welke extra informatie wil je zien om de claim wel te kunnen onderbouwen?"
+      ],
+      "modelPoints": [
+        "Waarschijnlijk convenience sampling met risico op homogene steekproef/selectiebias.",
+        "Saturatie moet inhoudelijk worden onderbouwd (geen nieuwe dimensies), niet numeriek.",
+        "Nodig: beschrijving van thema-ontwikkeling over interviews heen en variatiestrategie."
+      ]
+    },
+    {
+      "id": "case-3",
+      "title": "Casus 3 - Analysekwaliteit",
+      "scenario": "In de resultatensectie staan veel citaten, maar de auteurs leggen niet uit hoe deze citaten samenhangen in overkoepelende thema's.",
+      "tasks": [
+        "Noem de kernfout in de analyse.",
+        "Koppel deze fout aan minimaal een kwaliteitscriterium.",
+        "Schrijf een verbeteradvies in een examenzin."
+      ],
+      "modelPoints": [
+        "Citaat-opsomming zonder analytische abstractie/patroonvorming.",
+        "Credibility en dependability komen onder druk omdat interpretatieve redenering niet transparant is.",
+        "Verbeteradvies: toon thematische samenhang en expliciete koppeling met onderzoeksvraag."
+      ]
+    },
+    {
+      "id": "case-4",
+      "title": "Casus 4 - Ethiek in context",
+      "scenario": "Een docent interviewt eigen studenten over stress. Formeel is toestemming geregeld, maar studenten geven aan dat weigeren lastig voelde.",
+      "tasks": [
+        "Welk type ethiek is hier vooral in het geding naast procedurele ethiek?",
+        "Welke machtsdynamiek speelt mee?",
+        "Noem twee maatregelen om ethisch sterker te werken."
+      ],
+      "modelPoints": [
+        "Relationele/situationele ethiek is cruciaal door afhankelijkheidsrelatie.",
+        "Machtsasymmetrie docent-student kan vrijwilligheid ondermijnen.",
+        "Maatregelen: externe interviewer, expliciete non-consequentie bij weigering, veilige setting."
+      ]
+    }
+  ]
+}

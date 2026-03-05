@@ -1,40 +1,32 @@
-const DATA_URL = "data/modules.json";
-const STORAGE_KEY = "tt-leerstof-progress-v1";
+const DATA_URL = "data/course-data.json";
+const STORAGE_KEY = "tt-leerstof-progress-v2";
 
 const state = {
-  modules: [],
-  filteredModules: [],
-  activeModuleId: null,
-  activeTab: "summary",
-  flashcard: {
-    index: 0,
-    flipped: false,
-  },
-  quiz: {
-    questions: [],
-    index: 0,
-    score: 0,
-    locked: false,
-    running: false,
-  },
-  sprint: {
-    questions: [],
-    index: 0,
-    score: 0,
-    locked: false,
-    running: false,
-  },
+  blocks: [],
+  questions: [],
+  cases: [],
+  supportFiles: [],
+  articleGuide: null,
+  activeBlockId: null,
+  filteredBlocks: [],
+  activeTab: "overview",
+  flashcard: { index: 0, flipped: false },
+  blockQuiz: { questions: [], index: 0, score: 0, locked: false, running: false },
+  exam: { questions: [], index: 0, score: 0, locked: false, running: false },
+  caseIndex: 0,
   progress: loadProgress(),
 };
 
 const els = {
   globalStats: document.getElementById("global-stats"),
   searchInput: document.getElementById("search-input"),
-  moduleList: document.getElementById("module-list"),
-  moduleHeader: document.getElementById("module-header"),
+  blockList: document.getElementById("block-list"),
+  supportList: document.getElementById("support-list"),
+  blockHeader: document.getElementById("block-header"),
   tabRow: document.getElementById("tab-row"),
   summaryList: document.getElementById("summary-list"),
-  keywordCloud: document.getElementById("keyword-cloud"),
+  goalsList: document.getElementById("goals-list"),
+  pitfallsList: document.getElementById("pitfalls-list"),
   resourceLinkRow: document.getElementById("resource-link-row"),
   flashcard: document.getElementById("flashcard"),
   prevCard: document.getElementById("prev-card"),
@@ -42,89 +34,121 @@ const els = {
   flipCard: document.getElementById("flip-card"),
   markKnown: document.getElementById("mark-known"),
   flashcardProgress: document.getElementById("flashcard-progress"),
-  startQuiz: document.getElementById("start-quiz"),
-  quizStatus: document.getElementById("quiz-status"),
-  quizCard: document.getElementById("quiz-card"),
-  quizQuestion: document.getElementById("quiz-question"),
-  quizPrompt: document.getElementById("quiz-prompt"),
-  quizOptions: document.getElementById("quiz-options"),
-  quizFeedback: document.getElementById("quiz-feedback"),
-  quizNext: document.getElementById("quiz-next"),
-  startSprint: document.getElementById("start-sprint"),
-  sprintCard: document.getElementById("sprint-card"),
-  sprintProgress: document.getElementById("sprint-progress"),
-  sprintPrompt: document.getElementById("sprint-prompt"),
-  sprintOptions: document.getElementById("sprint-options"),
-  sprintFeedback: document.getElementById("sprint-feedback"),
-  sprintNext: document.getElementById("sprint-next"),
-  weakTerms: document.getElementById("weak-terms"),
+  startBlockQuiz: document.getElementById("start-block-quiz"),
+  blockQuizStatus: document.getElementById("block-quiz-status"),
+  blockQuizCard: document.getElementById("block-quiz-card"),
+  blockQuizQuestion: document.getElementById("block-quiz-question"),
+  blockQuizPrompt: document.getElementById("block-quiz-prompt"),
+  blockQuizOptions: document.getElementById("block-quiz-options"),
+  blockQuizFeedback: document.getElementById("block-quiz-feedback"),
+  blockQuizNext: document.getElementById("block-quiz-next"),
+  startExam: document.getElementById("start-exam"),
+  examCard: document.getElementById("exam-card"),
+  examProgress: document.getElementById("exam-progress"),
+  examPrompt: document.getElementById("exam-prompt"),
+  examOptions: document.getElementById("exam-options"),
+  examFeedback: document.getElementById("exam-feedback"),
+  examNext: document.getElementById("exam-next"),
+  weakTags: document.getElementById("weak-tags"),
+  caseTitle: document.getElementById("case-title"),
+  caseScenario: document.getElementById("case-scenario"),
+  caseTasks: document.getElementById("case-tasks"),
+  caseModel: document.getElementById("case-model"),
+  nextCase: document.getElementById("next-case"),
+  toggleModel: document.getElementById("toggle-model"),
+  articleSteps: document.getElementById("article-steps"),
+  quickCheckList: document.getElementById("quick-check-list"),
 };
 
 init().catch((error) => {
   console.error(error);
-  els.moduleHeader.innerHTML = `<h2>Fout bij laden</h2><p>De modules konden niet worden geladen.</p>`;
+  els.blockHeader.innerHTML = `<h2>Fout bij laden</h2><p>De leerdata kon niet geladen worden.</p>`;
 });
 
 async function init() {
   bindUI();
+
   const response = await fetch(DATA_URL);
   if (!response.ok) {
     throw new Error(`Kon ${DATA_URL} niet laden`);
   }
 
-  const payload = await response.json();
-  state.modules = (payload.modules || []).sort((a, b) => a.title.localeCompare(b.title));
-  state.filteredModules = [...state.modules];
-  state.activeModuleId = state.modules[0]?.id || null;
+  const data = await response.json();
+  state.blocks = data.blocks || [];
+  state.questions = data.questions || [];
+  state.cases = data.cases || [];
+  state.articleGuide = data.articleGuide || null;
+  state.supportFiles = data.supportSourceFiles || [];
+
+  state.filteredBlocks = [...state.blocks];
+  state.activeBlockId = state.blocks[0]?.id || null;
 
   renderGlobalStats();
-  renderModuleList();
-  renderActiveModule();
-  renderWeakTerms();
+  renderBlockList();
+  renderSupportFiles();
+  renderArticleGuide();
+  renderActiveBlock();
+  renderCase();
+  renderWeakTags();
 }
 
 function bindUI() {
   els.searchInput.addEventListener("input", onSearch);
 
   els.tabRow.addEventListener("click", (event) => {
-    const btn = event.target.closest(".tab-btn");
-    if (!btn) return;
-    setActiveTab(btn.dataset.tab);
+    const button = event.target.closest(".tab-btn");
+    if (!button) return;
+    setActiveTab(button.dataset.tab);
   });
 
   els.prevCard.addEventListener("click", () => moveFlashcard(-1));
   els.nextCard.addEventListener("click", () => moveFlashcard(1));
-  els.flipCard.addEventListener("click", () => flipFlashcard());
-  els.flashcard.addEventListener("click", () => flipFlashcard());
+  els.flipCard.addEventListener("click", flipFlashcard);
+  els.flashcard.addEventListener("click", flipFlashcard);
   els.flashcard.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       flipFlashcard();
     }
   });
-  els.markKnown.addEventListener("click", toggleKnownForCurrentCard);
+  els.markKnown.addEventListener("click", toggleKnownConcept);
 
-  els.startQuiz.addEventListener("click", startModuleQuiz);
-  els.quizNext.addEventListener("click", nextQuizQuestion);
+  els.startBlockQuiz.addEventListener("click", startBlockQuiz);
+  els.blockQuizNext.addEventListener("click", nextBlockQuizQuestion);
 
-  els.startSprint.addEventListener("click", startSprintQuiz);
-  els.sprintNext.addEventListener("click", nextSprintQuestion);
+  els.startExam.addEventListener("click", startExam);
+  els.examNext.addEventListener("click", nextExamQuestion);
+
+  els.nextCase.addEventListener("click", nextCase);
+  els.toggleModel.addEventListener("click", () => {
+    const isHidden = els.caseModel.classList.contains("hidden");
+    els.caseModel.classList.toggle("hidden", !isHidden);
+    els.toggleModel.textContent = isHidden ? "Verberg modelpunten" : "Toon modelpunten";
+  });
 }
 
 function onSearch(event) {
   const query = event.target.value.trim().toLowerCase();
-  state.filteredModules = state.modules.filter((module) => {
+
+  state.filteredBlocks = state.blocks.filter((block) => {
     if (!query) return true;
-    const text = `${module.title} ${(module.keywords || []).join(" ")}`.toLowerCase();
+
+    const conceptText = (block.concepts || []).map((item) => item.term).join(" ");
+    const questionTagText = state.questions
+      .filter((q) => q.blockId === block.id)
+      .flatMap((q) => q.tags || [])
+      .join(" ");
+
+    const text = `${block.title} ${block.focus} ${conceptText} ${questionTagText}`.toLowerCase();
     return text.includes(query);
   });
 
-  if (!state.filteredModules.some((module) => module.id === state.activeModuleId)) {
-    state.activeModuleId = state.filteredModules[0]?.id || null;
+  if (!state.filteredBlocks.some((block) => block.id === state.activeBlockId)) {
+    state.activeBlockId = state.filteredBlocks[0]?.id || null;
   }
 
-  renderModuleList();
-  renderActiveModule();
+  renderBlockList();
+  renderActiveBlock();
 }
 
 function setActiveTab(tab) {
@@ -138,437 +162,533 @@ function setActiveTab(tab) {
     view.classList.remove("is-active");
   });
 
-  const activeView = document.getElementById(`tab-${tab}`);
-  if (activeView) {
-    activeView.classList.add("is-active");
+  const target = document.getElementById(`tab-${tab}`);
+  if (target) {
+    target.classList.add("is-active");
   }
 }
 
-function getActiveModule() {
-  return state.modules.find((module) => module.id === state.activeModuleId) || null;
+function getActiveBlock() {
+  return state.blocks.find((block) => block.id === state.activeBlockId) || null;
 }
 
 function renderGlobalStats() {
-  const totalPages = state.modules.reduce((sum, module) => sum + (module.pageCount || 0), 0);
-  const totalQuestions = state.modules.reduce((sum, module) => sum + (module.quiz?.length || 0), 0);
-  const avgProgress = averageModuleProgress();
+  const totalQuestions = state.questions.length;
+  const avgProgress = averageBlockProgress();
+  const checklistDone = articleChecklistDoneCount();
+  const checklistTotal = state.articleGuide?.steps?.length || 0;
 
-  const pills = [
-    `${state.modules.length} bronnen`,
-    `${totalPages} pagina's`,
+  const stats = [
+    `${state.blocks.length} kernblokken`,
     `${totalQuestions} toetsvragen`,
-    `${avgProgress}% totaal voortgang`,
+    `${state.cases.length} casussen`,
+    `${avgProgress}% totale voortgang`,
+    `${checklistDone}/${checklistTotal} artikelcheck-stappen afgevinkt`,
   ];
 
-  els.globalStats.innerHTML = pills.map((pill) => `<span class="stat-pill">${pill}</span>`).join("");
+  els.globalStats.innerHTML = stats.map((item) => `<span class="stat-pill">${escapeHtml(item)}</span>`).join("");
 }
 
-function renderModuleList() {
-  if (!state.filteredModules.length) {
-    els.moduleList.innerHTML = `<p class="muted">Geen modules gevonden.</p>`;
+function renderBlockList() {
+  if (!state.filteredBlocks.length) {
+    els.blockList.innerHTML = `<p class="muted">Geen blokken gevonden.</p>`;
     return;
   }
 
-  els.moduleList.innerHTML = state.filteredModules
-    .map((module) => {
-      const progressPct = getModuleProgressPercent(module);
-      const activeClass = module.id === state.activeModuleId ? "is-active" : "";
+  els.blockList.innerHTML = state.filteredBlocks
+    .map((block) => {
+      const activeClass = block.id === state.activeBlockId ? "is-active" : "";
+      const score = getBlockProgressPercent(block);
+      const qCount = state.questions.filter((question) => question.blockId === block.id).length;
+
       return `
-        <article class="module-item ${activeClass}" data-module-id="${module.id}">
-          <p class="module-title">${escapeHtml(module.title)}</p>
+        <article class="module-item ${activeClass}" data-block-id="${block.id}">
+          <p class="module-title">${escapeHtml(block.title)}</p>
           <div class="module-meta">
-            <span class="chip">${module.pageCount} p</span>
-            <span class="chip">${module.quiz.length} vragen</span>
-            <span class="chip chip-progress">${progressPct}%</span>
+            <span class="chip">${qCount} vragen</span>
+            <span class="chip">${(block.concepts || []).length} begrippen</span>
+            <span class="chip chip-progress">${score}%</span>
           </div>
         </article>
       `;
     })
     .join("");
 
-  els.moduleList.querySelectorAll(".module-item").forEach((item) => {
+  els.blockList.querySelectorAll(".module-item").forEach((item) => {
     item.addEventListener("click", () => {
-      const { moduleId } = item.dataset;
-      state.activeModuleId = moduleId;
+      state.activeBlockId = item.dataset.blockId;
       state.flashcard.index = 0;
       state.flashcard.flipped = false;
-      stopModuleQuiz();
-      renderModuleList();
-      renderActiveModule();
+      resetBlockQuizUI();
+      renderBlockList();
+      renderActiveBlock();
     });
   });
 }
 
-function renderActiveModule() {
-  const module = getActiveModule();
+function renderSupportFiles() {
+  els.supportList.innerHTML = state.supportFiles
+    .map((filename) => {
+      const href = encodeURI(`materials/${filename}`);
+      return `<a class="resource-link support-link" href="${href}" target="_blank" rel="noopener">${escapeHtml(filename)}</a>`;
+    })
+    .join("");
+}
 
-  if (!module) {
-    els.moduleHeader.innerHTML = `<h2>Geen module geselecteerd</h2>`;
-    els.summaryList.innerHTML = "";
-    els.keywordCloud.innerHTML = "";
-    els.resourceLinkRow.innerHTML = "";
-    els.flashcard.textContent = "";
+function renderActiveBlock() {
+  const block = getActiveBlock();
+  if (!block) {
+    els.blockHeader.innerHTML = `<h2>Geen blok geselecteerd</h2>`;
     return;
   }
 
-  const progressPct = getModuleProgressPercent(module);
-  els.moduleHeader.innerHTML = `
-    <h2>${escapeHtml(module.title)}</h2>
-    <p>${module.pageCount} pagina's · ${module.quiz.length} quizvragen · ${progressPct}% voortgang</p>
+  const qCount = state.questions.filter((question) => question.blockId === block.id).length;
+  const score = getBlockProgressPercent(block);
+
+  els.blockHeader.innerHTML = `
+    <h2>${escapeHtml(block.title)}</h2>
+    <p>${escapeHtml(block.focus)} · ${qCount} vragen · ${score}% voortgang</p>
   `;
 
-  renderSummary(module);
-  renderFlashcard(module);
-  resetQuizUI();
-}
+  els.summaryList.innerHTML = (block.summary || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("");
+  els.goalsList.innerHTML = (block.learningGoals || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("");
+  els.pitfallsList.innerHTML = (block.pitfalls || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("");
 
-function renderSummary(module) {
-  els.summaryList.innerHTML = (module.summary || [])
-    .map((point) => `<li>${escapeHtml(point)}</li>`)
-    .join("");
-
-  els.keywordCloud.innerHTML = (module.keywords || [])
-    .map((term) => `<span class="keyword">${escapeHtml(term)}</span>`)
-    .join("");
-
-  const href = encodeURI(module.filePath);
+  const href = encodeURI(`materials/${block.sourceFile}`);
   els.resourceLinkRow.innerHTML = `
-    <a class="resource-link" href="${href}" target="_blank" rel="noopener">Open PDF</a>
-    <a class="resource-link" href="${href}" download>Download PDF</a>
+    <a class="resource-link" href="${href}" target="_blank" rel="noopener">Open kernbron</a>
+    <a class="resource-link" href="${href}" download>Download kernbron</a>
   `;
+
+  renderFlashcard();
 }
 
 function moveFlashcard(step) {
-  const module = getActiveModule();
-  if (!module || !module.flashcards.length) return;
+  const block = getActiveBlock();
+  if (!block || !(block.concepts || []).length) return;
 
-  const count = module.flashcards.length;
+  const count = block.concepts.length;
   state.flashcard.index = (state.flashcard.index + step + count) % count;
   state.flashcard.flipped = false;
-  renderFlashcard(module);
+  renderFlashcard();
 }
 
 function flipFlashcard() {
-  const module = getActiveModule();
-  if (!module || !module.flashcards.length) return;
+  const block = getActiveBlock();
+  if (!block || !(block.concepts || []).length) return;
 
   state.flashcard.flipped = !state.flashcard.flipped;
-  renderFlashcard(module);
+  renderFlashcard();
 }
 
-function renderFlashcard(module) {
-  const cards = module.flashcards || [];
-  if (!cards.length) {
-    els.flashcard.textContent = "Geen flashcards beschikbaar.";
+function renderFlashcard() {
+  const block = getActiveBlock();
+  if (!block || !(block.concepts || []).length) {
+    els.flashcard.textContent = "Geen begrippen beschikbaar.";
     els.flashcardProgress.textContent = "";
     return;
   }
 
-  if (state.flashcard.index >= cards.length) {
+  if (state.flashcard.index >= block.concepts.length) {
     state.flashcard.index = 0;
   }
 
-  const card = cards[state.flashcard.index];
+  const concept = block.concepts[state.flashcard.index];
   const isBack = state.flashcard.flipped;
 
   els.flashcard.classList.toggle("back", isBack);
-  els.flashcard.innerHTML = isBack
-    ? `<strong>Uitleg</strong><br>${escapeHtml(card.explanation)}`
-    : `<strong>Begrip</strong><br>${escapeHtml(card.term)}`;
-
-  const knownSet = getKnownCards(module.id);
-  const known = knownSet.has(card.id);
-  els.markKnown.textContent = known ? "Beheerst ✓" : "Markeer als beheerst";
-
-  els.flashcardProgress.textContent = `Kaart ${state.flashcard.index + 1} van ${cards.length} · ${knownSet.size}/${cards.length} beheerst`;
-}
-
-function toggleKnownForCurrentCard() {
-  const module = getActiveModule();
-  if (!module || !module.flashcards.length) return;
-
-  const card = module.flashcards[state.flashcard.index];
-  const knownSet = getKnownCards(module.id);
-
-  if (knownSet.has(card.id)) {
-    knownSet.delete(card.id);
+  if (isBack) {
+    els.flashcard.innerHTML = `<strong>Uitleg</strong><br>${escapeHtml(concept.definition)}<br><br><em>Tentamentip:</em> ${escapeHtml(concept.examTip)}`;
   } else {
-    knownSet.add(card.id);
+    els.flashcard.innerHTML = `<strong>Begrip</strong><br>${escapeHtml(concept.term)}`;
   }
 
-  const moduleProgress = getOrCreateModuleProgress(module.id);
-  moduleProgress.knownCards = Array.from(knownSet);
+  const known = getKnownConceptSet(block.id);
+  const isKnown = known.has(concept.term);
+  els.markKnown.textContent = isKnown ? "Beheerst ✓" : "Markeer als beheerst";
+  els.flashcardProgress.textContent = `Begrip ${state.flashcard.index + 1} van ${block.concepts.length} · ${known.size}/${block.concepts.length} beheerst`;
+}
 
+function toggleKnownConcept() {
+  const block = getActiveBlock();
+  if (!block || !(block.concepts || []).length) return;
+
+  const concept = block.concepts[state.flashcard.index];
+  const known = getKnownConceptSet(block.id);
+
+  if (known.has(concept.term)) {
+    known.delete(concept.term);
+  } else {
+    known.add(concept.term);
+  }
+
+  const progress = getOrCreateBlockProgress(block.id);
+  progress.knownConcepts = Array.from(known);
   saveProgress();
-  renderFlashcard(module);
-  renderModuleList();
+
+  renderFlashcard();
+  renderBlockList();
   renderGlobalStats();
 }
 
-function startModuleQuiz() {
-  const module = getActiveModule();
-  if (!module) return;
+function startBlockQuiz() {
+  const block = getActiveBlock();
+  if (!block) return;
 
-  const questions = shuffle([...module.quiz]).slice(0, Math.min(8, module.quiz.length));
-  state.quiz.questions = questions;
-  state.quiz.index = 0;
-  state.quiz.score = 0;
-  state.quiz.locked = false;
-  state.quiz.running = true;
-
-  els.quizCard.classList.remove("hidden");
-  els.quizStatus.textContent = "";
-  renderQuizQuestion();
-}
-
-function stopModuleQuiz() {
-  state.quiz.running = false;
-  state.quiz.questions = [];
-  state.quiz.index = 0;
-  state.quiz.score = 0;
-  state.quiz.locked = false;
-}
-
-function resetQuizUI() {
-  els.quizCard.classList.add("hidden");
-  els.quizStatus.textContent = "Start een quiz voor deze module.";
-  els.quizFeedback.textContent = "";
-  els.quizFeedback.className = "quiz-feedback";
-  els.quizNext.classList.add("hidden");
-}
-
-function renderQuizQuestion() {
-  const question = state.quiz.questions[state.quiz.index];
-  if (!question) {
-    finishModuleQuiz();
+  const questions = shuffle(state.questions.filter((question) => question.blockId === block.id)).slice(0, 10);
+  if (!questions.length) {
+    els.blockQuizStatus.textContent = "Voor dit blok zijn geen vragen beschikbaar.";
     return;
   }
 
-  state.quiz.locked = false;
-  els.quizNext.classList.add("hidden");
-  els.quizFeedback.textContent = "";
-  els.quizFeedback.className = "quiz-feedback";
+  state.blockQuiz = {
+    questions,
+    index: 0,
+    score: 0,
+    locked: false,
+    running: true,
+  };
 
-  els.quizQuestion.textContent = `Vraag ${state.quiz.index + 1} van ${state.quiz.questions.length}`;
-  els.quizPrompt.textContent = question.prompt;
+  els.blockQuizCard.classList.remove("hidden");
+  els.blockQuizStatus.textContent = "";
+  renderBlockQuizQuestion();
+}
 
-  els.quizOptions.innerHTML = question.options
+function resetBlockQuizUI() {
+  state.blockQuiz = { questions: [], index: 0, score: 0, locked: false, running: false };
+  els.blockQuizCard.classList.add("hidden");
+  els.blockQuizStatus.textContent = "Start een quiz met vragen die inhoudelijk bij dit blok horen.";
+}
+
+function renderBlockQuizQuestion() {
+  const question = state.blockQuiz.questions[state.blockQuiz.index];
+  if (!question) {
+    finishBlockQuiz();
+    return;
+  }
+
+  state.blockQuiz.locked = false;
+  els.blockQuizFeedback.textContent = "";
+  els.blockQuizFeedback.className = "quiz-feedback";
+  els.blockQuizNext.classList.add("hidden");
+
+  els.blockQuizQuestion.textContent = `Vraag ${state.blockQuiz.index + 1} van ${state.blockQuiz.questions.length}`;
+  els.blockQuizPrompt.textContent = question.prompt;
+
+  els.blockQuizOptions.innerHTML = question.options
     .map((option) => `<button class="option-btn" data-option="${escapeAttr(option)}">${escapeHtml(option)}</button>`)
     .join("");
 
-  els.quizOptions.querySelectorAll(".option-btn").forEach((button) => {
-    button.addEventListener("click", () => answerQuizQuestion(button.dataset.option));
+  els.blockQuizOptions.querySelectorAll(".option-btn").forEach((button) => {
+    button.addEventListener("click", () => answerBlockQuizQuestion(button.dataset.option));
   });
 }
 
-function answerQuizQuestion(option) {
-  if (state.quiz.locked) return;
-  const question = state.quiz.questions[state.quiz.index];
+function answerBlockQuizQuestion(option) {
+  if (state.blockQuiz.locked) return;
+
+  const question = state.blockQuiz.questions[state.blockQuiz.index];
   if (!question) return;
 
-  state.quiz.locked = true;
-  const isCorrect = option === question.answer;
+  state.blockQuiz.locked = true;
+  const correct = option === question.answer;
 
-  if (isCorrect) {
-    state.quiz.score += 1;
-    els.quizFeedback.textContent = "Correct.";
-    els.quizFeedback.classList.add("good");
+  if (correct) {
+    state.blockQuiz.score += 1;
+    els.blockQuizFeedback.textContent = "Correct.";
+    els.blockQuizFeedback.classList.add("good");
   } else {
-    els.quizFeedback.textContent = `Onjuist. Correct antwoord: ${question.answer}`;
-    els.quizFeedback.classList.add("bad");
-    registerWeakTerm(question.answer);
+    els.blockQuizFeedback.textContent = `Onjuist. ${question.explanation}`;
+    els.blockQuizFeedback.classList.add("bad");
+    registerWeakTags(question.tags || [], question.blockId);
   }
 
-  els.quizOptions.querySelectorAll(".option-btn").forEach((button) => {
+  els.blockQuizOptions.querySelectorAll(".option-btn").forEach((button) => {
     button.disabled = true;
-    const buttonOption = button.dataset.option;
-    if (buttonOption === question.answer) {
+    const value = button.dataset.option;
+    if (value === question.answer) {
       button.classList.add("correct");
-    } else if (buttonOption === option) {
+    } else if (value === option) {
       button.classList.add("wrong");
     }
   });
 
-  els.quizNext.classList.remove("hidden");
+  els.blockQuizNext.classList.remove("hidden");
 }
 
-function nextQuizQuestion() {
-  state.quiz.index += 1;
-  renderQuizQuestion();
+function nextBlockQuizQuestion() {
+  state.blockQuiz.index += 1;
+  renderBlockQuizQuestion();
 }
 
-function finishModuleQuiz() {
-  const module = getActiveModule();
-  const total = state.quiz.questions.length || 1;
-  const pct = Math.round((state.quiz.score / total) * 100);
+function finishBlockQuiz() {
+  const block = getActiveBlock();
+  const total = state.blockQuiz.questions.length || 1;
+  const pct = Math.round((state.blockQuiz.score / total) * 100);
 
-  if (module) {
-    const progress = getOrCreateModuleProgress(module.id);
+  if (block) {
+    const progress = getOrCreateBlockProgress(block.id);
+    progress.bestBlockQuiz = Math.max(progress.bestBlockQuiz || 0, pct);
+    progress.lastBlockQuiz = pct;
     progress.quizAttempts = (progress.quizAttempts || 0) + 1;
-    progress.quizBest = Math.max(progress.quizBest || 0, pct);
-    progress.quizLast = pct;
     saveProgress();
   }
 
-  els.quizCard.classList.add("hidden");
-  els.quizStatus.textContent = `Quiz voltooid: ${state.quiz.score}/${total} (${pct}%).`;
+  els.blockQuizCard.classList.add("hidden");
+  els.blockQuizStatus.textContent = `Blokquiz afgerond: ${state.blockQuiz.score}/${total} (${pct}%).`;
 
-  renderModuleList();
+  state.blockQuiz = { questions: [], index: 0, score: 0, locked: false, running: false };
+  renderBlockList();
   renderGlobalStats();
-  renderWeakTerms();
-  stopModuleQuiz();
+  renderWeakTags();
 }
 
-function startSprintQuiz() {
-  const pool = [];
-  for (const module of state.modules) {
-    for (const question of module.quiz || []) {
-      pool.push({ ...question, moduleTitle: module.title });
+function buildExamQuestions() {
+  const questionsByBlock = new Map();
+  for (const question of state.questions) {
+    if (!questionsByBlock.has(question.blockId)) {
+      questionsByBlock.set(question.blockId, []);
     }
+    questionsByBlock.get(question.blockId).push(question);
   }
 
-  state.sprint.questions = shuffle(pool).slice(0, Math.min(20, pool.length));
-  state.sprint.index = 0;
-  state.sprint.score = 0;
-  state.sprint.locked = false;
-  state.sprint.running = true;
+  const selected = [];
+  for (const block of state.blocks) {
+    const pool = shuffle(questionsByBlock.get(block.id) || []);
+    selected.push(...pool.slice(0, 4));
+  }
 
-  els.sprintCard.classList.remove("hidden");
-  renderSprintQuestion();
+  if (selected.length < 20) {
+    const ids = new Set(selected.map((item) => item.id));
+    const remaining = shuffle(state.questions.filter((item) => !ids.has(item.id)));
+    selected.push(...remaining.slice(0, 20 - selected.length));
+  }
+
+  return shuffle(selected).slice(0, 20);
 }
 
-function renderSprintQuestion() {
-  const question = state.sprint.questions[state.sprint.index];
+function startExam() {
+  const questions = buildExamQuestions();
+  if (!questions.length) return;
+
+  state.exam = {
+    questions,
+    index: 0,
+    score: 0,
+    locked: false,
+    running: true,
+  };
+
+  els.examCard.classList.remove("hidden");
+  renderExamQuestion();
+}
+
+function renderExamQuestion() {
+  const question = state.exam.questions[state.exam.index];
   if (!question) {
-    finishSprintQuiz();
+    finishExam();
     return;
   }
 
-  state.sprint.locked = false;
-  els.sprintNext.classList.add("hidden");
-  els.sprintFeedback.textContent = "";
-  els.sprintFeedback.className = "quiz-feedback";
+  state.exam.locked = false;
+  els.examFeedback.textContent = "";
+  els.examFeedback.className = "quiz-feedback";
+  els.examNext.classList.add("hidden");
 
-  els.sprintProgress.textContent = `Vraag ${state.sprint.index + 1} van ${state.sprint.questions.length} · Bron: ${question.moduleTitle}`;
-  els.sprintPrompt.textContent = question.prompt;
+  const block = state.blocks.find((item) => item.id === question.blockId);
+  els.examProgress.textContent = `Vraag ${state.exam.index + 1} van ${state.exam.questions.length} · ${block?.title || question.blockId}`;
+  els.examPrompt.textContent = question.prompt;
 
-  els.sprintOptions.innerHTML = question.options
+  els.examOptions.innerHTML = question.options
     .map((option) => `<button class="option-btn" data-option="${escapeAttr(option)}">${escapeHtml(option)}</button>`)
     .join("");
 
-  els.sprintOptions.querySelectorAll(".option-btn").forEach((button) => {
-    button.addEventListener("click", () => answerSprintQuestion(button.dataset.option));
+  els.examOptions.querySelectorAll(".option-btn").forEach((button) => {
+    button.addEventListener("click", () => answerExamQuestion(button.dataset.option));
   });
 }
 
-function answerSprintQuestion(option) {
-  if (state.sprint.locked) return;
-  const question = state.sprint.questions[state.sprint.index];
+function answerExamQuestion(option) {
+  if (state.exam.locked) return;
+  const question = state.exam.questions[state.exam.index];
   if (!question) return;
 
-  state.sprint.locked = true;
-  const isCorrect = option === question.answer;
+  state.exam.locked = true;
+  const correct = option === question.answer;
 
-  if (isCorrect) {
-    state.sprint.score += 1;
-    els.sprintFeedback.textContent = "Correct.";
-    els.sprintFeedback.classList.add("good");
+  if (correct) {
+    state.exam.score += 1;
+    els.examFeedback.textContent = "Correct.";
+    els.examFeedback.classList.add("good");
   } else {
-    els.sprintFeedback.textContent = `Onjuist. Correct antwoord: ${question.answer}`;
-    els.sprintFeedback.classList.add("bad");
-    registerWeakTerm(question.answer);
+    els.examFeedback.textContent = `Onjuist. ${question.explanation}`;
+    els.examFeedback.classList.add("bad");
+    registerWeakTags(question.tags || [], question.blockId);
   }
 
-  els.sprintOptions.querySelectorAll(".option-btn").forEach((button) => {
+  els.examOptions.querySelectorAll(".option-btn").forEach((button) => {
     button.disabled = true;
-    const buttonOption = button.dataset.option;
-    if (buttonOption === question.answer) {
+    const value = button.dataset.option;
+    if (value === question.answer) {
       button.classList.add("correct");
-    } else if (buttonOption === option) {
+    } else if (value === option) {
       button.classList.add("wrong");
     }
   });
 
-  els.sprintNext.classList.remove("hidden");
+  els.examNext.classList.remove("hidden");
 }
 
-function nextSprintQuestion() {
-  state.sprint.index += 1;
-  renderSprintQuestion();
+function nextExamQuestion() {
+  state.exam.index += 1;
+  renderExamQuestion();
 }
 
-function finishSprintQuiz() {
-  const total = state.sprint.questions.length || 1;
-  const pct = Math.round((state.sprint.score / total) * 100);
+function finishExam() {
+  const total = state.exam.questions.length || 1;
+  const pct = Math.round((state.exam.score / total) * 100);
 
-  els.sprintProgress.textContent = "Sprinttoets voltooid";
-  els.sprintPrompt.textContent = `Eindscore: ${state.sprint.score}/${total} (${pct}%).`;
-  els.sprintOptions.innerHTML = "";
-  els.sprintFeedback.textContent = "Bekijk hieronder je zwakke begrippen en herhaal de sprint.";
-  els.sprintFeedback.className = `quiz-feedback ${pct >= 70 ? "good" : "bad"}`;
-  els.sprintNext.classList.add("hidden");
+  state.progress.exam = state.progress.exam || { attempts: 0, best: 0, last: 0 };
+  state.progress.exam.attempts += 1;
+  state.progress.exam.best = Math.max(state.progress.exam.best, pct);
+  state.progress.exam.last = pct;
+  saveProgress();
 
-  state.sprint.running = false;
-  renderWeakTerms();
+  els.examProgress.textContent = "Integratiesprint afgerond";
+  els.examPrompt.textContent = `Eindscore: ${state.exam.score}/${total} (${pct}%).`;
+  els.examOptions.innerHTML = "";
+  els.examFeedback.textContent = "Bekijk je zwakke labels hieronder en herhaal gericht per blok.";
+  els.examFeedback.className = `quiz-feedback ${pct >= 70 ? "good" : "bad"}`;
+  els.examNext.classList.add("hidden");
+
+  state.exam.running = false;
+  renderWeakTags();
+  renderGlobalStats();
 }
 
-function getOrCreateModuleProgress(moduleId) {
-  if (!state.progress.moduleProgress[moduleId]) {
-    state.progress.moduleProgress[moduleId] = {
-      knownCards: [],
-      quizBest: 0,
-      quizLast: 0,
+function renderArticleGuide() {
+  const guide = state.articleGuide;
+  if (!guide) return;
+
+  const steps = guide.steps || [];
+  els.articleSteps.innerHTML = steps
+    .map((step, index) => {
+      const key = `step-${index + 1}`;
+      const checked = !!state.progress.articleChecklist[key];
+
+      return `
+        <article class="article-step">
+          <label class="article-step-head">
+            <input type="checkbox" data-check-key="${key}" ${checked ? "checked" : ""} />
+            <strong>${escapeHtml(step.step)}</strong>
+          </label>
+          <p><strong>Definitie:</strong> ${escapeHtml(step.definition)}</p>
+          <p><strong>Herkennen:</strong> ${escapeHtml(step.howToRecognize)}</p>
+          <p><strong>Voorbeeld:</strong> ${escapeHtml(step.example)}</p>
+          <p><strong>Waar in artikel:</strong> ${escapeHtml((step.articleSections || []).join(", "))}</p>
+          <div class="keyword-cloud">
+            ${(step.keywords || []).map((kw) => `<span class="keyword">${escapeHtml(kw)}</span>`).join("")}
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+
+  els.quickCheckList.innerHTML = (guide.quickCheck || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("");
+
+  els.articleSteps.querySelectorAll("input[type='checkbox'][data-check-key]").forEach((input) => {
+    input.addEventListener("change", () => {
+      state.progress.articleChecklist[input.dataset.checkKey] = input.checked;
+      saveProgress();
+      renderGlobalStats();
+    });
+  });
+}
+
+function articleChecklistDoneCount() {
+  return Object.values(state.progress.articleChecklist || {}).filter(Boolean).length;
+}
+
+function renderCase() {
+  if (!state.cases.length) return;
+
+  if (state.caseIndex >= state.cases.length) {
+    state.caseIndex = 0;
+  }
+
+  const item = state.cases[state.caseIndex];
+  els.caseTitle.textContent = item.title;
+  els.caseScenario.textContent = item.scenario;
+  els.caseTasks.innerHTML = (item.tasks || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("");
+  els.caseModel.innerHTML = (item.modelPoints || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("");
+  els.caseModel.classList.add("hidden");
+  els.toggleModel.textContent = "Toon modelpunten";
+}
+
+function nextCase() {
+  if (!state.cases.length) return;
+
+  const next = Math.floor(Math.random() * state.cases.length);
+  state.caseIndex = next === state.caseIndex ? (next + 1) % state.cases.length : next;
+  renderCase();
+}
+
+function getOrCreateBlockProgress(blockId) {
+  if (!state.progress.blockProgress[blockId]) {
+    state.progress.blockProgress[blockId] = {
+      knownConcepts: [],
+      bestBlockQuiz: 0,
+      lastBlockQuiz: 0,
       quizAttempts: 0,
     };
   }
-  return state.progress.moduleProgress[moduleId];
+
+  return state.progress.blockProgress[blockId];
 }
 
-function getKnownCards(moduleId) {
-  const progress = getOrCreateModuleProgress(moduleId);
-  return new Set(progress.knownCards || []);
+function getKnownConceptSet(blockId) {
+  const progress = getOrCreateBlockProgress(blockId);
+  return new Set(progress.knownConcepts || []);
 }
 
-function getModuleProgressPercent(module) {
-  const progress = getOrCreateModuleProgress(module.id);
-  const cardWeight = 0.6;
-  const quizWeight = 0.4;
-
-  const known = (progress.knownCards || []).length;
-  const totalCards = module.flashcards?.length || 1;
-  const cardPct = Math.round((known / totalCards) * 100);
-
-  const quizPct = progress.quizBest || 0;
-
-  return Math.round(cardPct * cardWeight + quizPct * quizWeight);
+function getBlockProgressPercent(block) {
+  const progress = getOrCreateBlockProgress(block.id);
+  const conceptTotal = (block.concepts || []).length || 1;
+  const conceptScore = Math.round(((progress.knownConcepts || []).length / conceptTotal) * 100);
+  const quizScore = progress.bestBlockQuiz || 0;
+  return Math.round(conceptScore * 0.5 + quizScore * 0.5);
 }
 
-function averageModuleProgress() {
-  if (!state.modules.length) return 0;
-  const sum = state.modules.reduce((acc, module) => acc + getModuleProgressPercent(module), 0);
-  return Math.round(sum / state.modules.length);
+function averageBlockProgress() {
+  if (!state.blocks.length) return 0;
+  const sum = state.blocks.reduce((acc, block) => acc + getBlockProgressPercent(block), 0);
+  return Math.round(sum / state.blocks.length);
 }
 
-function registerWeakTerm(term) {
-  if (!term) return;
-  const key = String(term).toLowerCase();
-  state.progress.weakTerms[key] = (state.progress.weakTerms[key] || 0) + 1;
+function registerWeakTags(tags, blockId) {
+  const values = [...(tags || []), blockId];
+  for (const tag of values) {
+    if (!tag) continue;
+    const key = String(tag).toLowerCase();
+    state.progress.weakTags[key] = (state.progress.weakTags[key] || 0) + 1;
+  }
+
   saveProgress();
-  renderWeakTerms();
+  renderWeakTags();
 }
 
-function renderWeakTerms() {
-  const entries = Object.entries(state.progress.weakTerms || {})
+function renderWeakTags() {
+  const entries = Object.entries(state.progress.weakTags)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 12);
+    .slice(0, 14);
 
   if (!entries.length) {
-    els.weakTerms.innerHTML = `<p class="muted">Nog geen zwakke begrippen geregistreerd. Start een quiz of sprinttoets.</p>`;
+    els.weakTags.innerHTML = `<p class="muted">Nog geen zwakke labels geregistreerd. Start een blokquiz of integratiesprint.</p>`;
     return;
   }
 
-  els.weakTerms.innerHTML = entries
-    .map(([term, count]) => `<span class="weak-chip">${escapeHtml(term)} (${count}x)</span>`)
+  els.weakTags.innerHTML = entries
+    .map(([label, count]) => `<span class="weak-chip">${escapeHtml(label)} (${count}x)</span>`)
     .join("");
 }
 
@@ -576,16 +696,29 @@ function loadProgress() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
-      return { moduleProgress: {}, weakTerms: {} };
+      return {
+        blockProgress: {},
+        weakTags: {},
+        articleChecklist: {},
+        exam: { attempts: 0, best: 0, last: 0 },
+      };
     }
+
     const parsed = JSON.parse(raw);
     return {
-      moduleProgress: parsed.moduleProgress || {},
-      weakTerms: parsed.weakTerms || {},
+      blockProgress: parsed.blockProgress || {},
+      weakTags: parsed.weakTags || {},
+      articleChecklist: parsed.articleChecklist || {},
+      exam: parsed.exam || { attempts: 0, best: 0, last: 0 },
     };
   } catch (error) {
-    console.warn("Kon voortgang niet laden", error);
-    return { moduleProgress: {}, weakTerms: {} };
+    console.warn("Voortgang kon niet worden geladen", error);
+    return {
+      blockProgress: {},
+      weakTags: {},
+      articleChecklist: {},
+      exam: { attempts: 0, best: 0, last: 0 },
+    };
   }
 }
 

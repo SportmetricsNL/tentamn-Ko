@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TT Leerstof | Interactieve Leeromgeving</title>
+    <title>TT Leerstof Arena | Blok 1-5</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,7 +20,7 @@
       <p class="hero-tag">Kwalitatief Onderzoek 2025-2026</p>
       <h1>TT Leerstof Arena</h1>
       <p class="hero-subtitle">
-        Leer alle bronnen actief, toets jezelf direct en volg je voortgang tot aan het tentamen.
+        Integrale leeromgeving op basis van <strong>Blok 1 t/m 5</strong>. De toetsing gebruikt deze blokken als kern; overige TT-bestanden zijn ondersteunende bibliotheek.
       </p>
       <div class="stats" id="global-stats"></div>
     </header>
@@ -28,47 +28,54 @@
     <main class="layout">
       <section class="panel panel-modules">
         <div class="panel-top">
-          <h2>Alle Modules</h2>
-          <input
-            id="search-input"
-            type="search"
-            placeholder="Zoek op titel of kernbegrip..."
-            autocomplete="off"
-          />
+          <h2>Leerlijn Blokken</h2>
+          <input id="search-input" type="search" placeholder="Zoek op blok, begrip of tag..." autocomplete="off" />
         </div>
-        <div id="module-list" class="module-list"></div>
+        <div id="block-list" class="module-list"></div>
+
+        <article class="card-box support-box">
+          <h3>Ondersteunende Bronnen</h3>
+          <p class="muted">Deze bestanden zijn beschikbaar als naslag, maar worden niet leidend getoetst in de quizbank.</p>
+          <div id="support-list" class="support-list"></div>
+        </article>
       </section>
 
       <section class="panel panel-study">
-        <div id="module-header" class="module-header"></div>
+        <div id="block-header" class="module-header"></div>
 
         <div class="tab-row" id="tab-row">
-          <button class="tab-btn is-active" data-tab="summary">Samenvatting</button>
-          <button class="tab-btn" data-tab="flashcards">Flashcards</button>
-          <button class="tab-btn" data-tab="quiz">Quiz</button>
-          <button class="tab-btn" data-tab="sprint">Sprinttoets</button>
+          <button class="tab-btn is-active" data-tab="overview">Overzicht</button>
+          <button class="tab-btn" data-tab="concepts">Begrippentrainer</button>
+          <button class="tab-btn" data-tab="blockquiz">Blokquiz</button>
+          <button class="tab-btn" data-tab="exam">Integratiesprint</button>
+          <button class="tab-btn" data-tab="articlecheck">Artikelcheck</button>
+          <button class="tab-btn" data-tab="cases">Casuslab</button>
         </div>
 
-        <div class="tab-view is-active" id="tab-summary">
+        <div class="tab-view is-active" id="tab-overview">
           <div class="split-grid">
             <article class="card-box">
-              <h3>Kernpunten</h3>
+              <h3>Samenvatting</h3>
               <ul id="summary-list" class="bullet-list"></ul>
             </article>
             <article class="card-box">
-              <h3>Kernbegrippen</h3>
-              <div id="keyword-cloud" class="keyword-cloud"></div>
+              <h3>Wat je moet kunnen</h3>
+              <ul id="goals-list" class="bullet-list"></ul>
             </article>
           </div>
           <article class="card-box">
-            <h3>Bronbestand</h3>
+            <h3>Veelgemaakte Fouten</h3>
+            <ul id="pitfalls-list" class="bullet-list"></ul>
+          </article>
+          <article class="card-box">
+            <h3>Kernbron Blok</h3>
             <div class="resource-row" id="resource-link-row"></div>
           </article>
         </div>
 
-        <div class="tab-view" id="tab-flashcards">
+        <div class="tab-view" id="tab-concepts">
           <article class="card-box flashcard-box">
-            <h3>Actief Begrip Leren</h3>
+            <h3>Begrippentrainer</h3>
             <div id="flashcard" class="flashcard" role="button" tabindex="0" aria-live="polite"></div>
             <div class="flashcard-actions">
               <button id="prev-card" class="btn">Vorige</button>
@@ -80,40 +87,65 @@
           </article>
         </div>
 
-        <div class="tab-view" id="tab-quiz">
+        <div class="tab-view" id="tab-blockquiz">
           <article class="card-box">
             <div class="quiz-head">
-              <h3>Directe Kennistoets</h3>
-              <button id="start-quiz" class="btn">Start nieuwe quiz</button>
+              <h3>Toets op Dit Blok</h3>
+              <button id="start-block-quiz" class="btn">Start blokquiz</button>
             </div>
-            <p id="quiz-status" class="muted">Start een quiz voor deze module.</p>
-            <div id="quiz-card" class="quiz-card hidden">
-              <p id="quiz-question" class="quiz-question"></p>
-              <p id="quiz-prompt" class="quiz-prompt"></p>
-              <div id="quiz-options" class="quiz-options"></div>
-              <p id="quiz-feedback" class="quiz-feedback"></p>
-              <button id="quiz-next" class="btn hidden">Volgende vraag</button>
+            <p id="block-quiz-status" class="muted">Start een quiz met vragen die inhoudelijk bij dit blok horen.</p>
+            <div id="block-quiz-card" class="quiz-card hidden">
+              <p id="block-quiz-question" class="quiz-question"></p>
+              <p id="block-quiz-prompt" class="quiz-prompt"></p>
+              <div id="block-quiz-options" class="quiz-options"></div>
+              <p id="block-quiz-feedback" class="quiz-feedback"></p>
+              <button id="block-quiz-next" class="btn hidden">Volgende vraag</button>
             </div>
           </article>
         </div>
 
-        <div class="tab-view" id="tab-sprint">
+        <div class="tab-view" id="tab-exam">
           <article class="card-box">
             <div class="quiz-head">
-              <h3>Sprinttoets over Alle Bestanden</h3>
-              <button id="start-sprint" class="btn">Start 20-vragen sprint</button>
+              <h3>Integratiesprint (Blok 1 t/m 5)</h3>
+              <button id="start-exam" class="btn">Start 20-vragen sprint</button>
             </div>
-            <p class="muted">
-              Deze modus mixt vragen uit alle 23 bronnen en laat direct zien welke begrippen extra aandacht nodig hebben.
-            </p>
-            <div id="sprint-card" class="quiz-card hidden">
-              <p id="sprint-progress" class="quiz-question"></p>
-              <p id="sprint-prompt" class="quiz-prompt"></p>
-              <div id="sprint-options" class="quiz-options"></div>
-              <p id="sprint-feedback" class="quiz-feedback"></p>
-              <button id="sprint-next" class="btn hidden">Volgende</button>
+            <p class="muted">Mix van alle kernblokken met nadruk op methodologische integratie en tentamenredenering.</p>
+            <div id="exam-card" class="quiz-card hidden">
+              <p id="exam-progress" class="quiz-question"></p>
+              <p id="exam-prompt" class="quiz-prompt"></p>
+              <div id="exam-options" class="quiz-options"></div>
+              <p id="exam-feedback" class="quiz-feedback"></p>
+              <button id="exam-next" class="btn hidden">Volgende</button>
             </div>
-            <div id="weak-terms" class="weak-terms"></div>
+            <div id="weak-tags" class="weak-terms"></div>
+          </article>
+        </div>
+
+        <div class="tab-view" id="tab-articlecheck">
+          <article class="card-box">
+            <h3>Beslisboom Artikelanalyse</h3>
+            <p class="muted">Gebruik deze stappen om elk artikel systematisch te beoordelen zoals bij tentamenvragen.</p>
+            <div id="article-steps" class="article-steps"></div>
+          </article>
+          <article class="card-box">
+            <h3>Ultra Snelle Check</h3>
+            <ul id="quick-check-list" class="bullet-list"></ul>
+          </article>
+        </div>
+
+        <div class="tab-view" id="tab-cases">
+          <article class="card-box">
+            <div class="quiz-head">
+              <h3>Casuslab</h3>
+              <button id="next-case" class="btn">Nieuwe casus</button>
+            </div>
+            <p id="case-title" class="quiz-question"></p>
+            <p id="case-scenario" class="quiz-prompt"></p>
+            <h4>Opdracht</h4>
+            <ul id="case-tasks" class="bullet-list"></ul>
+            <button id="toggle-model" class="btn btn-secondary">Toon modelpunten</button>
+            <ul id="case-model" class="bullet-list hidden"></ul>
           </article>
         </div>
       </section>
@@ -121,7 +153,7 @@
 
     <footer class="footer">
       <p>
-        Alle bronbestanden uit TT leerstof zijn opgenomen in <code>/materials</code>. Voortgang wordt lokaal opgeslagen in je browser.
+        Kern-toetsing is gebaseerd op <code>Blok_1</code> t/m <code>Blok_5</code>. Bronbestanden staan in <code>/materials</code>.
       </p>
     </footer>
 
