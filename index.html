@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TT Leerstof | Interactieve Leeromgeving</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
+
+    <header class="hero">
+      <p class="hero-tag">Kwalitatief Onderzoek 2025-2026</p>
+      <h1>TT Leerstof Arena</h1>
+      <p class="hero-subtitle">
+        Leer alle bronnen actief, toets jezelf direct en volg je voortgang tot aan het tentamen.
+      </p>
+      <div class="stats" id="global-stats"></div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel-modules">
+        <div class="panel-top">
+          <h2>Alle Modules</h2>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Zoek op titel of kernbegrip..."
+            autocomplete="off"
+          />
+        </div>
+        <div id="module-list" class="module-list"></div>
+      </section>
+
+      <section class="panel panel-study">
+        <div id="module-header" class="module-header"></div>
+
+        <div class="tab-row" id="tab-row">
+          <button class="tab-btn is-active" data-tab="summary">Samenvatting</button>
+          <button class="tab-btn" data-tab="flashcards">Flashcards</button>
+          <button class="tab-btn" data-tab="quiz">Quiz</button>
+          <button class="tab-btn" data-tab="sprint">Sprinttoets</button>
+        </div>
+
+        <div class="tab-view is-active" id="tab-summary">
+          <div class="split-grid">
+            <article class="card-box">
+              <h3>Kernpunten</h3>
+              <ul id="summary-list" class="bullet-list"></ul>
+            </article>
+            <article class="card-box">
+              <h3>Kernbegrippen</h3>
+              <div id="keyword-cloud" class="keyword-cloud"></div>
+            </article>
+          </div>
+          <article class="card-box">
+            <h3>Bronbestand</h3>
+            <div class="resource-row" id="resource-link-row"></div>
+          </article>
+        </div>
+
+        <div class="tab-view" id="tab-flashcards">
+          <article class="card-box flashcard-box">
+            <h3>Actief Begrip Leren</h3>
+            <div id="flashcard" class="flashcard" role="button" tabindex="0" aria-live="polite"></div>
+            <div class="flashcard-actions">
+              <button id="prev-card" class="btn">Vorige</button>
+              <button id="flip-card" class="btn btn-secondary">Flip</button>
+              <button id="next-card" class="btn">Volgende</button>
+              <button id="mark-known" class="btn btn-success">Markeer als beheerst</button>
+            </div>
+            <p id="flashcard-progress" class="muted"></p>
+          </article>
+        </div>
+
+        <div class="tab-view" id="tab-quiz">
+          <article class="card-box">
+            <div class="quiz-head">
+              <h3>Directe Kennistoets</h3>
+              <button id="start-quiz" class="btn">Start nieuwe quiz</button>
+            </div>
+            <p id="quiz-status" class="muted">Start een quiz voor deze module.</p>
+            <div id="quiz-card" class="quiz-card hidden">
+              <p id="quiz-question" class="quiz-question"></p>
+              <p id="quiz-prompt" class="quiz-prompt"></p>
+              <div id="quiz-options" class="quiz-options"></div>
+              <p id="quiz-feedback" class="quiz-feedback"></p>
+              <button id="quiz-next" class="btn hidden">Volgende vraag</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="tab-view" id="tab-sprint">
+          <article class="card-box">
+            <div class="quiz-head">
+              <h3>Sprinttoets over Alle Bestanden</h3>
+              <button id="start-sprint" class="btn">Start 20-vragen sprint</button>
+            </div>
+            <p class="muted">
+              Deze modus mixt vragen uit alle 23 bronnen en laat direct zien welke begrippen extra aandacht nodig hebben.
+            </p>
+            <div id="sprint-card" class="quiz-card hidden">
+              <p id="sprint-progress" class="quiz-question"></p>
+              <p id="sprint-prompt" class="quiz-prompt"></p>
+              <div id="sprint-options" class="quiz-options"></div>
+              <p id="sprint-feedback" class="quiz-feedback"></p>
+              <button id="sprint-next" class="btn hidden">Volgende</button>
+            </div>
+            <div id="weak-terms" class="weak-terms"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Alle bronbestanden uit TT leerstof zijn opgenomen in <code>/materials</code>. Voortgang wordt lokaal opgeslagen in je browser.
+      </p>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
